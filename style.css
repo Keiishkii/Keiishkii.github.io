@@ -1,8 +1,11 @@
+html, body, #page{ height:100%; }
+
 body 
 {
 	margin: 0px;
 	border: 0px;
 	padding: 0px;
+	background-color: #111;
 }
 
 img { display: block; }
@@ -14,23 +17,32 @@ p
 	margin: 0px;
 }
 
-
-#banner p
+h1
 {
-	position: relative;
-
-	padding: 0.5em;
-	text-align: center;
-
-	font-size: 5vh;
-	color: white;
+	margin: 0px;
 }
 
 #banner
 {
-	z-index: 10;
+	position: absolute;
+}
 
+#banner p, #about p
+{
 	position: relative;
+
+	padding: 0.3em;
+	text-align: center;
+
+	font-size: 5vh;
+	color: #EEE;
+}
+
+#banner, #about
+{
+	z-index: 10;
+	min-width: 100%;
+	position: absolute;
 	padding-top: 1vh;
 	padding-bottom: 1vh;
 
@@ -38,32 +50,86 @@ p
 	box-shadow: 0px 5px 20px 0px #000000;
 }
 
-#banner_highlight
+#banner_highlight, #about_highlight
 {
 	position: relative;
+	box-shadow: 0px 5px 20px 0px #000000;
 
-	background-color: #111;
+	background-color: #222;
 }
 
 #display
 {
-	max-height: 50%;
+	max-height: 100vh;
 	display: block;
 }
 
 #display img
 {
 	position: relative;
-	top : 0;
+}
+
+#about
+{
+	position: relative;
+}
+
+#about p
+{
+	font-family: "Arial", Helvetica, sans-serif;
+	font-size: 3vh;
 }
 
 #content
 {
-	z-index: 10;
-
+	z-index: 0;
 	position: relative;
+
 	min-height: 200px;
 
+	padding: 10px;
+	padding-top: 0px;
 	box-shadow: 0px -5px 20px 0px #000000;
+	background-color: #111;
+	text-align: center;
+}
+
+#paragraph
+{
+	box-shadow: 0px 5px 20px 0px #000000;
 	background-color: #222;
+	max-width: 2000px;
+	width: 90vw;
+	min-height: 50vh;
+
+	left: 50%;
+	text-align: center;
+	display: inline-block;
+
+}
+
+#paragraph h1
+{
+	font-family: "Trebuchet MS", Helvetica, serif;
+
+	position: relative;
+
+	padding: 0.3em;
+	text-align: center;
+
+	font-size: 5vh;
+	color: #EEE;
+}
+
+#paragraph p
+{
+	font-family: "Arial", Helvetica, serif;
+
+	position: relative;
+
+	padding: 0.1em;
+	text-align: left;
+
+	font-size: 1.5vh;
+	color: #EEE;
 }
