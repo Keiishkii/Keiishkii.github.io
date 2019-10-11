@@ -6,36 +6,45 @@ body
 	border: 0px;
 	padding: 0px;
 	background-color: #111;
+	color: #E6FFFF;
 }
 
 img { display: block; }
 
-p
+h1, h2, p
 {
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-family: "Tahoma", Geneva, serif;
 
-	margin: 0px;
-}
-
-h1
-{
 	margin: 0px;
 }
 
 #banner
 {
 	position: absolute;
+  	text-shadow: 0.25vw 0.25vw #000;
 }
 
-#banner p, #about p
+#banner h1, #about h1
+{
+	position: relative;
+
+	padding-bottom: 0px;
+	text-align: center;
+
+	font-weight: normal;
+	font-size: 4vw;
+}
+
+#banner h2
 {
 	position: relative;
 
 	padding: 0.3em;
-	text-align: center;
+	padding-left: 25vw;
+	padding-top: 0px;
+	font-size: 1.5vw;
 
-	font-size: 5vw;
-	color: #EEE;
+	text-align: center;
 }
 
 #banner, #about
@@ -46,7 +55,7 @@ h1
 	padding-top: 1vh;
 	padding-bottom: 1vh;
 
-	background-color: #222;
+	background-color: #1A1A20;
 	box-shadow: 0px 5px 20px 0px #000000;
 }
 
@@ -55,7 +64,7 @@ h1
 	position: relative;
 	box-shadow: 0px 5px 20px 0px #000000;
 
-	background-color: #222;
+	background-color: #1A1A20;
 }
 
 #display
@@ -72,12 +81,16 @@ h1
 #about
 {
 	position: relative;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
 }
 
-#about p
+#about h1
 {
 	font-family: "Arial", Helvetica, sans-serif;
-	font-size: 3vh;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	font-size: 3vw;
 }
 
 #content
@@ -97,10 +110,12 @@ h1
 #paragraph
 {
 	box-shadow: 0px 5px 20px 0px #000000;
-	background-color: #222;
+	background-color: #1A1A20;
 	max-width: 2000px;
 	width: 90vw;
 	min-height: 50vh;
+
+	padding-top: 2vh;
 
 	left: 50%;
 	text-align: center;
@@ -114,11 +129,10 @@ h1
 
 	position: relative;
 
-	padding: 0.3em;
+	padding: 0.5em;
 	text-align: center;
 
-	font-size: 5vh;
-	color: #EEE;
+	font-size: 24px;
 }
 
 #paragraph p
@@ -127,9 +141,9 @@ h1
 
 	position: relative;
 
-	padding: 0.1em;
+	padding-left: 10em;
+	padding-right: 10em;
 	text-align: left;
 
-	font-size: 1.5vh;
-	color: #EEE;
+	font-size: 16px;
 }
