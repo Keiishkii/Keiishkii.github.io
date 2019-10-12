@@ -162,7 +162,7 @@ h1, h2, p
 	padding: 0.5em;
 	text-align: center;
 
-	font-size: 24px;
+	font-size: 32px;
 }
 
 #paragraph p
@@ -175,12 +175,12 @@ h1, h2, p
 	padding-right: 5%;
 	text-align: left;
 
-	font-size: 16px;
+	font-size: 20px;
 }
 
 #paragraph img
 {
-  border-radius: 25px;
+  	border-radius: 25px;
  	display: block;
  	margin-left: auto;
  	margin-right: auto;
@@ -199,9 +199,12 @@ h1, h2, p
 
 #section 
 {
-	margin-left: 15%;
-	margin-right: 15%;
+ 	display: block;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	width: 70%;
 	background-color: #111;
+	min-width: 400px;
   	border-radius: 25px;
 	padding-bottom: 3em;
 }
