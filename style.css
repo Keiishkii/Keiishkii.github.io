@@ -1,5 +1,32 @@
 html, body, #page{ height:100%; }
 
+#navigation_bar a
+{
+  	text-decoration: none;
+  	margin-right: 0.5em;
+  	margin-left: 0.5em;
+}
+
+a:link
+{
+	color: #526CC3;
+}
+
+a:visited
+{
+	color: #526CC3;
+}
+
+a:hover
+{
+	color: #5D7AD8;
+}
+
+a:active
+{
+	color: #89B9FF;
+}
+
 body 
 {
 	margin: 0px;
@@ -24,7 +51,7 @@ h1, h2, p
   	text-shadow: 0.25vw 0.25vw #000;
 }
 
-#banner h1, #about h1
+#banner h1, #navigation_bar h1
 {
 	position: relative;
 
@@ -38,7 +65,7 @@ h1, h2, p
 #banner h2
 {
 	position: relative;
-
+	color: #5D7AD8;
 	padding: 0.3em;
 	padding-left: 25vw;
 	padding-top: 0px;
@@ -47,7 +74,7 @@ h1, h2, p
 	text-align: center;
 }
 
-#banner, #about
+#banner, #navigation_bar
 {
 	z-index: 10;
 	min-width: 100%;
@@ -59,7 +86,7 @@ h1, h2, p
 	box-shadow: 0px 5px 20px 0px #000000;
 }
 
-#banner_highlight, #about_highlight
+#banner_highlight, #navigation_bar_highlight
 {
 	position: relative;
 	box-shadow: 0px 5px 20px 0px #000000;
@@ -78,18 +105,19 @@ h1, h2, p
 	position: relative;
 }
 
-#about
+#navigation_bar
 {
 	position: relative;
 	padding-top: 1vh;
 	padding-bottom: 1vh;
 }
 
-#about h1
+#navigation_bar h1
 {
-	font-family: "Arial", Helvetica, sans-serif;
+	font-family: "Impact", Charcoal, sans-serif;
+	font-weight: normal;
+	font
 	padding-top: 1vh;
-	padding-bottom: 1vh;
 	font-size: 3vw;
 }
 
@@ -112,10 +140,12 @@ h1, h2, p
 	box-shadow: 0px 5px 20px 0px #000000;
 	background-color: #1A1A20;
 	max-width: 2000px;
-	width: 90vw;
+	width: 70vw;
 	min-height: 50vh;
+	min-width: 500px;
 
 	padding-top: 2vh;
+	padding-bottom: 20em;
 
 	left: 50%;
 	text-align: center;
@@ -141,9 +171,37 @@ h1, h2, p
 
 	position: relative;
 
-	padding-left: 10em;
-	padding-right: 10em;
+	padding-left: 5%;
+	padding-right: 5%;
 	text-align: left;
 
 	font-size: 16px;
+}
+
+#paragraph img
+{
+  border-radius: 25px;
+ 	display: block;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	width: 50%;
+	box-shadow: 0px 0px 20px 5px #000000;
+}
+
+#paragraph hr
+{
+	background-color: #526CC3; 
+	height: 2px; 
+	border: 0;
+	width: 55vw;
+	min-width: 400px;
+}
+
+#section 
+{
+	margin-left: 15%;
+	margin-right: 15%;
+	background-color: #111;
+  	border-radius: 25px;
+	padding-bottom: 3em;
 }
