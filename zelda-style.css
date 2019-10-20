@@ -1,0 +1,19 @@
+#display 
+{
+	text-align: center;
+
+	max-height: 100vh;
+	display: block;
+}
+
+#display iframe
+{
+	padding-right: auto;
+	padding-left: auto;
+
+	box-shadow: 0px 5px 20px 0px #000000;
+
+	left: 50%;
+	width: 70%;
+	height: 40vw;
+}
