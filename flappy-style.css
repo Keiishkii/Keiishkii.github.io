@@ -1,0 +1,37 @@
+#display 
+{
+	text-align: center;
+
+	max-height: 100vh;
+	display: block;
+}
+
+#display iframe
+{
+	padding-right: auto;
+	padding-left: auto;
+
+	box-shadow: 0px 5px 20px 0px #000000;
+
+	left: 50%;
+	width: 70%;
+	height: 40vw;
+}
+
+#paragraph img
+{
+	width: 20%;
+}
+
+#paragraph h2
+{
+	font-family: "Trebuchet MS", Helvetica, serif;
+
+	position: relative;
+
+	padding-right: 25vw;
+
+	text-align: center;
+
+	font-size: 50px;
+}
