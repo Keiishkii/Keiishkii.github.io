@@ -18,11 +18,25 @@
 	height: 40vw;
 }
 
-#paragraph img
+#section
 {
-	width: 20%;
+  	border-radius: 10px;
 }
 
+#paragraph img
+{
+	background-color: #111;
+  	border-radius: 10px;
+	position: absolute;
+	text-align: center;
+
+	width: 2em;
+	padding: 0px;
+	left: 49%;
+	margin-right: -1em;
+	top: -2em;
+	display: block;
+}
 #paragraph h2
 {
 	font-family: "Trebuchet MS", Helvetica, serif;
