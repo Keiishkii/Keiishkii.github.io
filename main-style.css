@@ -159,9 +159,11 @@ h1, h2, p
 	font-family: "Trebuchet MS", Helvetica, serif;
 
 	position: relative;
+	text-decoration: underline;
 
 	padding: 0.5em;
-	text-align: center;
+	text-align: left;
+	padding-left: 5%;
 
 	font-size: 32px;
 }
@@ -206,8 +208,13 @@ h1, h2, p
  	width: 70%;
 	background-color: #111;
 	min-width: 400px;
-  	border-radius: 25px;
-	padding-bottom: 3em;
+  	border-radius: 10px;
+	padding-bottom: 1em;
+}
+
+#section ul
+{
+	text-align: left;
 }
 
 #bottom 
@@ -240,4 +247,16 @@ h1, h2, p
 	display: inline;
 	padding-left: 1vw;
 	padding-right: 1vw;
+}
+
+#listContent
+{
+	margin: 0px;
+}
+
+#columb 
+{
+	columns: 2;
+	padding-right: 5%;
+	padding-left: 5%;
 }
