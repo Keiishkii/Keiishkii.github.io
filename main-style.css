@@ -7,6 +7,51 @@ html, body, #page{ height:100%; }
   	margin-left: 0.5em;
 }
 
+
+.dropbtn {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	background-color: #1A1A20;
+	color: #526CC3;
+	font-size: 16px;
+	border: none;
+	
+	font-family: "Impact", Charcoal, sans-serif;
+	font-weight: normal;
+	font-size: 3vw;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #111;
+	min-width: 20vw;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.dropdown-content a 
+{
+	text-decoration: none;
+	display: block;
+	
+	font-family: "Impact", Charcoal, sans-serif;
+	font-weight: normal;
+	padding-top: 1vh;
+	font-size: 2vw;
+}
+
+.dropdown-content a:hover {background-color: #333;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #1A1A20;}
+
 a:link
 {
 	color: #526CC3;
@@ -118,7 +163,7 @@ h1, h2, p
 	font-family: "Impact", Charcoal, sans-serif;
 	font-weight: normal;
 	padding-top: 1vh;
-	font-size: 2vw;
+	font-size: 3vw;
 }
 
 #content
