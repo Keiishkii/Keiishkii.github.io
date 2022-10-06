@@ -1,0 +1,14 @@
+.page_background
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    background-image: url("../../[2][ Images ]/Background.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    z-index: -10;
+}

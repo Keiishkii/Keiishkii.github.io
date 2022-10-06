@@ -1,0 +1,126 @@
+.footer
+{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 100%;
+    width: 100%;
+
+    z-index: 5;
+
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,2));
+}
+
+
+
+.footer_background
+{
+    display: block;
+    position: absolute;
+
+    width: 273px;
+
+    bottom: 0;
+    right: 0;
+
+    border-bottom: 78px solid #101013;
+    border-left: 20px solid transparent;
+}
+
+#footer_background_decor
+{
+    display: block;
+    position: absolute;
+
+    bottom: 8px;
+
+    height: 8px;
+    width: 100%;
+
+    background-color: #101013;
+}
+
+.footer_foreground
+{
+    display: block;
+    position: absolute;
+
+    width: 265px;
+
+    bottom: -0px;
+    right: 0;
+
+    border-bottom: 68px solid #1A1A20;
+    border-left: 19px solid transparent;
+
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,2));
+}
+
+#footer_decor
+{
+    display: block;
+    position: absolute;
+
+    bottom: 0;
+
+    height: 8px;
+    width: 100%;
+
+    background-color: #1A1A20;
+}
+
+
+
+#github_icon, #linkedin_icon, #youtube_icon, #email_icon
+{
+    display: block;
+    position: absolute;
+
+    width: 48px;
+    height: 48px;
+
+    bottom: 10px;
+    right: 8px;
+
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,2));
+}
+
+#github_icon
+{
+    background-image: url("../../[2][ Images ]/[ Icons ]/GitHub.png");
+    background-position: center;
+    background-size: cover;
+
+    right: 208px;
+}
+
+
+#linkedin_icon
+{
+    background-image: url("../../[2][ Images ]/[ Icons ]/LinkedIn.png");
+    background-position: center;
+    background-size: cover;
+
+    right: 144px;
+}
+
+#youtube_icon
+{
+    background-image: url("../../[2][ Images ]/[ Icons ]/YouTube.png");
+    background-position: center;
+    background-size: cover;
+
+    right: 80px;
+}
+
+#email_icon
+{
+    background-image: url("../../[2][ Images ]/[ Icons ]/Email.png");
+    background-position: center;
+    background-size: cover;
+
+    right: 16px;
+}

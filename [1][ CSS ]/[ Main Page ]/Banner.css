@@ -1,0 +1,42 @@
+@import url('http://fonts.cdnfonts.com/css/agency-fb');
+
+.page_banner
+{
+    position: fixed;
+
+    min-width: 100%;
+    padding: 8px 0px;
+
+    margin-top: -16px;
+
+    background-color: #101013;
+    box-shadow: 0px 5px 20px 0px #000000;
+
+    z-index: 20;
+}
+
+.banner_foreground
+{
+    position: relative;
+    min-width: 100%;
+
+    padding: 10px 0px;
+
+    background-color: #1A1A20;
+    box-shadow: 0px 5px 20px 0px #000000;
+}
+
+.banner_foreground h1
+{
+    text-align: center;
+    margin: 0;
+
+    white-space: nowrap;
+
+    font-family: 'Agency FB', sans-serif;
+    font-size: 50px;
+
+    color: whitesmoke;
+
+    text-shadow: 0.25vw 0.25vw #000;
+}

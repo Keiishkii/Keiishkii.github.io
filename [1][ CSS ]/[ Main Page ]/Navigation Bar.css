@@ -1,0 +1,98 @@
+.navigation_bar
+{
+    position: fixed;
+    margin-top: 73px;
+
+    z-index: 10;
+}
+
+.navigation_bar_content_background
+{
+    display: block;
+
+    width: fit-content;
+    height: fit-content;
+
+    padding: 8px 8px 8px 0px;
+
+    background-color: #101013;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,1));
+}
+
+.navigation_edge
+{
+    z-index: -1;
+    display: inline-block;
+    position: relative;
+
+    float: right;
+
+    margin-top: -60px;
+    margin-right: -28px;
+
+    border-top: 69px solid #1A1A20;
+    border-right: 20px solid transparent;
+}
+
+.navigation_bar ul
+{
+    margin: 0px;
+    padding: 0px;
+
+    width: fit-content;
+    height: 52px;
+
+    overflow: no-display;
+
+    list-style-type: none;
+
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,1));
+}
+
+.navigation_bar li
+{
+    float: left;
+}
+
+.navigation_bar li:last-child
+{
+    position: relative;
+    border-top: 52px solid #1A1A20;
+    border-right: 15px solid transparent;
+
+    margin-right: -15px;
+}
+
+.navigation_bar_content
+{
+    padding: 5px 0px;
+    margin-left: 10px;
+    background-color: #1A1A20;
+    height: 42px;
+
+    text-decoration: none;
+}
+
+.navigation_bar a:hover, .navigation_bar a:visited, .navigation_bar a:link, .navigation_bar a:active
+{
+    text-decoration: none;
+}
+
+.navigation_bar_content h1
+{
+    display: inline;
+    font-family: 'Agency FB', sans-serif;
+    font-size: 36px;
+
+    white-space: nowrap;
+
+    margin: 10px;
+    color: whitesmoke;
+}
+
+.navigation_bar_content:hover
+{
+    background-color: forestgreen;
+
+    box-shadow: 0px 0px 5px #1A1A20 inset;
+}
