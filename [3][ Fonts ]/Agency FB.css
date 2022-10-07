@@ -3,6 +3,6 @@
     font-family: 'Agency FB';
     font-style: normal;
     font-weight: 700;
-    src: local('Agency FB'), url("Agency FB.woff") format('woff');
+    src: local('Agency FB'), url("/Agency FB.woff") format('woff');
 }
 
