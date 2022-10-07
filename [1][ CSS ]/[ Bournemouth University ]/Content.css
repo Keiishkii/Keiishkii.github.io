@@ -1,0 +1,35 @@
+.content
+{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    top: 0px;
+
+    width: 80vw;
+    min-height: 100vh;
+}
+
+.content_background
+{
+    position: relative;
+    top: 180px;
+    margin: auto;
+
+    width: 95%;
+    min-height: 800px;
+
+    background-color: #000000BB;
+    box-shadow: 0 0 5px;
+
+    border-radius: 20px;
+    border: 10px black;
+}
+
+.content_background p
+{
+    padding: 30px;
+    font-size: 20px;
+
+    color: whitesmoke;
+}

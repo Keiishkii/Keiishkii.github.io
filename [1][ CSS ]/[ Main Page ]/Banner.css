@@ -2,12 +2,12 @@
 
 .page_banner
 {
-    position: fixed;
+    position: absolute;
+
+    top: 0px;
 
     min-width: 100%;
     padding: 8px 0px;
-
-    margin-top: -16px;
 
     background-color: #101013;
     box-shadow: 0px 5px 20px 0px #000000;

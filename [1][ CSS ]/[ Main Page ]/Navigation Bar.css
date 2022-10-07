@@ -1,7 +1,9 @@
 .navigation_bar
 {
-    position: fixed;
-    margin-top: 73px;
+    position: sticky;
+
+    margin-top: 71px;
+    top: 0px;
 
     z-index: 10;
 }
@@ -30,7 +32,7 @@
     margin-top: -60px;
     margin-right: -28px;
 
-    border-top: 69px solid #1A1A20;
+    border-top: 69px solid #101013;
     border-right: 20px solid transparent;
 }
 
@@ -66,7 +68,7 @@
 .navigation_bar_content
 {
     padding: 5px 0px;
-    margin-left: 10px;
+    margin-left: 8px;
     background-color: #1A1A20;
     height: 42px;
 
