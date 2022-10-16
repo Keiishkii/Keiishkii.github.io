@@ -1,4 +1,4 @@
-.content
+.content_panel
 {
     position: absolute;
     left: 50%;
@@ -10,7 +10,7 @@
     min-height: 100vh;
 }
 
-.content_background
+.content_panel_background
 {
     position: relative;
     top: 180px;
@@ -26,10 +26,50 @@
     border: 10px black;
 }
 
-.content_background p
+.content_panel_background ul
 {
-    padding: 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.content li
+{
+    padding-bottom: 20px;
+}
+
+.content li:last-child
+{
+    padding-bottom: 160px;
+}
+
+.content h1
+{
+    padding: 20px 20px 0px 20px;
+    font-family: 'Agency FB', sans-serif;
+    color: var(--base_font_colour);
+}
+
+.content_paragraph
+{
+    display: inline-block;
+}
+
+.content_paragraph img
+{
+    float: left;
+
+    width: 30%;
+
+    padding: 0;
+    margin: 0px 20px 0px 20px;
+}
+
+.content_paragraph p
+{
+    text-align: justify;
+    margin: 0px 40px 0px 40px;
+
     font-size: 20px;
 
-    color: whitesmoke;
+    color: var(--base_font_colour);
 }

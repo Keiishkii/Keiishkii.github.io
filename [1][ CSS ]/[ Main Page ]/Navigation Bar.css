@@ -1,11 +1,20 @@
-.navigation_bar
+#navigation_panel
 {
     position: sticky;
+    width: 100%;
 
-    margin-top: 94px;
+    margin-top: calc(var(--navigation_panel_top_margin) - 2px);
     top: 0px;
 
+    overflow: hidden;
+
     z-index: 10;
+}
+
+.navigation_bar
+{
+    height: 52px;
+    width: max(100%, 2000px);
 }
 
 .navigation_bar_content_background
@@ -89,7 +98,7 @@
     white-space: nowrap;
 
     margin: 10px;
-    color: whitesmoke;
+    color: var(--base_font_colour);
 }
 
 .navigation_bar_content:hover

@@ -1,54 +1,21 @@
-window.onload = function ()
+window.addEventListener("load", function()
 {
-    LoadNavigationPanel();
-};
+    LoadFooterPanel();
+});
 
-function LoadNavigationPanel()
+function LoadFooterPanel()
 {
-    document.getElementById('navigation_panel').innerHTML = '<div class = "navigation_box">\n' +
-        '\t\t\t\t<div class = "navigation_bar">\n' +
-        '\t\t\t\t\t<div class = "navigation_bar_content_background">\n' +
-        '\t\t\t\t\t\t<ul>\n' +
-        '\t\t\t\t\t\t\t<li>\n' +
-        '\t\t\t\t\t\t\t\t<a href = "./index.html">\n' +
-        '\t\t\t\t\t\t\t\t\t<div class = "navigation_bar_content">\n' +
-        '\t\t\t\t\t\t\t\t\t\t<h1>Home</h1>\n' +
-        '\t\t\t\t\t\t\t\t\t</div>\n' +
-        '\t\t\t\t\t\t\t\t</a>\n' +
-        '\t\t\t\t\t\t\t</li>\n' +
-        '\t\t\t\t\t\t\t<li>\n' +
-        '\t\t\t\t\t\t\t\t<a href = "./bournemouth-university.html">\n' +
-        '\t\t\t\t\t\t\t\t\t<div class = "navigation_bar_content">\n' +
-        '\t\t\t\t\t\t\t\t\t\t<h1>Bournemouth University</h1>\n' +
-        '\t\t\t\t\t\t\t\t\t</div>\n' +
-        '\t\t\t\t\t\t\t\t</a>\n' +
-        '\t\t\t\t\t\t\t</li>\n' +
-        '\t\t\t\t\t\t\t<li>\n' +
-        '\t\t\t\t\t\t\t\t<a href="https://www.google.com">\n' +
-        '\t\t\t\t\t\t\t\t\t<div class = "navigation_bar_content">\n' +
-        '\t\t\t\t\t\t\t\t\t\t<h1>INCISIV</h1>\n' +
-        '\t\t\t\t\t\t\t\t\t</div>\n' +
-        '\t\t\t\t\t\t\t\t</a>\n' +
-        '\t\t\t\t\t\t\t</li>\n' +
-        '\t\t\t\t\t\t\t<li>\n' +
-        '\t\t\t\t\t\t\t\t<a href="https://www.google.com">\n' +
-        '\t\t\t\t\t\t\t\t\t<div class = "navigation_bar_content">\n' +
-        '\t\t\t\t\t\t\t\t\t\t<h1>BCHons</h1>\n' +
-        '\t\t\t\t\t\t\t\t\t</div>\n' +
-        '\t\t\t\t\t\t\t\t</a>\n' +
-        '\t\t\t\t\t\t\t</li>\n' +
-        '\t\t\t\t\t\t\t<li>\n' +
-        '\t\t\t\t\t\t\t\t<a href="https://www.google.com">\n' +
-        '\t\t\t\t\t\t\t\t\t<div class = "navigation_bar_content">\n' +
-        '\t\t\t\t\t\t\t\t\t\t<h1>Projects</h1>\n' +
-        '\t\t\t\t\t\t\t\t\t</div>\n' +
-        '\t\t\t\t\t\t\t\t</a>\n' +
-        '\t\t\t\t\t\t\t</li>\n' +
-        '\t\t\t\t\t\t\t<li>\n' +
-        '\t\t\t\t\t\t\t</li>\n' +
-        '\t\t\t\t\t\t</ul>\n' +
-        '\t\t\t\t\t\t<div class = "navigation_edge"></div>\n' +
-        '\t\t\t\t\t</div>\n' +
-        '\t\t\t\t</div>\n' +
-        '\t\t\t</div>'
+    document.getElementById("footer_panel").innerHTML = '' +
+        '<div class = "footer\">' +
+        '   <div class = "footer_background\"></div>' +
+        '   <div id = footer_background_decor></div>' +
+        '' +
+        '   <div class = "footer_foreground\"></div>' +
+        '   <div id = footer_decor></div>' +
+        '' +
+        '   <a href = "https://github.com/Keiishkii\"><div id = github_icon></div></a>' +
+        '   <a href = "https://www.linkedin.com/in/charlie-lloyd-buckingham-4b645b169/\"><div id = linkedin_icon></div></a>' +
+        '   <a href = "https://www.youtube.com/user/keiishkii\"><div id = youtube_icon></div></a>' +
+        '   <a href = "mailto:keiishkii@gmail.com\"><div id = email_icon></div></a>' +
+        '</div>'
 }

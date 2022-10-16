@@ -1,5 +1,6 @@
 .footer
 {
+    pointer-events: none;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -78,6 +79,7 @@
 {
     display: block;
     position: absolute;
+    pointer-events: all;
 
     width: 48px;
     height: 48px;
@@ -95,7 +97,7 @@
 
 #github_icon
 {
-    background-image: url("./../../[2][ Images ]/[ Icons ]/GitHub.png");
+    background-image: url("../../[3][ Images ]/[ Icons ]/GitHub.png");
     background-position: center;
     background-size: cover;
 
@@ -105,7 +107,7 @@
 
 #linkedin_icon
 {
-    background-image: url("./../../[2][ Images ]/[ Icons ]/LinkedIn.png");
+    background-image: url("../../[3][ Images ]/[ Icons ]/LinkedIn.png");
     background-position: center;
     background-size: cover;
 
@@ -114,7 +116,7 @@
 
 #youtube_icon
 {
-    background-image: url("./../../[2][ Images ]/[ Icons ]/YouTube.png");
+    background-image: url("../../[3][ Images ]/[ Icons ]/YouTube.png");
     background-position: center;
     background-size: cover;
 
@@ -123,7 +125,7 @@
 
 #email_icon
 {
-    background-image: url("./../../[2][ Images ]/[ Icons ]/Email.png");
+    background-image: url("../../[3][ Images ]/[ Icons ]/Email.png");
     background-position: center;
     background-size: cover;
 

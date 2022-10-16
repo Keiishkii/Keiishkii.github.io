@@ -10,3 +10,13 @@ body, html, .page
     width: 100%;
     height: 100%;
 }
+
+/* Page Variables */
+:root
+{
+    /* Reactive Panel Dimensions */
+    --navigation_panel_top_margin: 95px;
+
+    /* Font Colours */
+    --base_font_colour: whitesmoke;
+}
