@@ -1,6 +1,7 @@
 window.addEventListener("load", function()
 {
     LoadNavigationPanel();
+    OnResizeOfWindow();
 });
 
 window.addEventListener("resize", function ()
@@ -23,6 +24,13 @@ function LoadNavigationPanel()
         '                   </a>' +
         '               </li>' +
         '               <li>' +
+        '                   <a href = "./about-me.html">' +
+        '                       <div class = "navigation_bar_content">' +
+        '                           <h1>About Me</h1>' +
+        '                       </div>' +
+        '                   </a>' +
+        '               </li>' +
+        '               <li>' +
         '                   <a href = "./bournemouth-university.html">' +
         '                       <div class = "navigation_bar_content">' +
         '                           <h1>Bournemouth University</h1>' +
@@ -37,14 +45,14 @@ function LoadNavigationPanel()
         '                   </a>' +
         '               </li>' +
         '               <li>' +
-        '                   <a href="https://www.google.com">' +
+        '                   <a href="./not-yet-implemented.html">' +
         '                       <div class = "navigation_bar_content">' +
         '                           <h1>BCHons</h1>' +
         '                       </div>' +
         '                   </a>' +
         '               </li>' +
         '               <li>' +
-        '                   <a href="https://www.google.com">' +
+        '                   <a href="./not-yet-implemented.html">' +
         '                       <div class = "navigation_bar_content">' +
         '                           <h1>Projects</h1>' +
         '                       </div>' +

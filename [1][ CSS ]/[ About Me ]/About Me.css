@@ -1,0 +1,55 @@
+#about-me-container
+{
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+
+    z-index: 100;
+}
+
+#about-me-container #message
+{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: fit-content;
+    max-width: 60%;
+    padding: min(2vw, 17px) min(4vw, 33px);
+
+    position: relative;
+    background-color: #000000BB;
+    box-shadow: 0 0 5px;
+
+    border-radius: 1vw;
+    border: 5px double black;
+
+    text-align: center;
+}
+
+#about-me-container #message h1
+{
+    margin: 0px;
+
+    font-family: 'Agency FB', sans-serif;
+    font-size: min(6vw, 50px);
+
+    color: var(--base_font_colour);
+}
+
+#about-me-container #message p
+{
+    margin: min(0.5vw, 4px) 0px 0px;
+
+    font-size: min(2vw, 17px);
+
+    color: var(--base_font_colour);
+}
