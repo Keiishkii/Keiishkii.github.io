@@ -15,11 +15,16 @@ const NavigationBanner = {
         NavigationBanner.navigationBanner = document.getElementById("navigation_banner_container");
 
         NavigationBanner.OnWindowResized();
+
+        console.log("Page Load");
     },
 
     OnWindowResized: function OnWindowResized()
     {
         let titleBannerHeight = NavigationBanner.titleBanner.clientHeight;
-        NavigationBanner.navigationBanner.style.top = titleBannerHeight;
+
+        NavigationBanner.navigationBanner.style.top = titleBannerHeight + "px";
+
+        console.log("Resized: " + titleBannerHeight);
     }
 }

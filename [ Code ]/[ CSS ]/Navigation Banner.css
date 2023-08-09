@@ -1,10 +1,10 @@
 #navigation_banner_container
 {
-    position: sticky;
+    position: fixed;
     width: 100%;
 
     margin-top: calc(var(--navigation_panel_top_margin) - 2px);
-    top: 0px;
+    top: 100px;
 
     overflow: hidden;
 
