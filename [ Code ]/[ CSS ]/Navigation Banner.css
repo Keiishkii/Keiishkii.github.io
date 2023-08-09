@@ -1,4 +1,4 @@
-#navigation_panel
+#navigation_banner_container
 {
     position: sticky;
     width: 100%;
@@ -11,13 +11,13 @@
     z-index: 10;
 }
 
-.navigation_bar
+#navigation_banner
 {
     height: 52px;
     width: max(100%, 2000px);
 }
 
-.navigation_bar_content_background
+.navigation_banner_content_background
 {
     display: block;
 
@@ -30,7 +30,7 @@
     filter: drop-shadow(0px 0px 10px rgba(0,0,0,1));
 }
 
-.navigation_edge
+.navigation_banner_edge
 {
     z-index: -1;
     display: inline-block;
@@ -45,7 +45,7 @@
     border-right: 20px solid transparent;
 }
 
-.navigation_bar ul
+#navigation_banner ul
 {
     margin: 0px;
     padding: 0px;
@@ -60,12 +60,12 @@
     filter: drop-shadow(0px 0px 10px rgba(0,0,0,1));
 }
 
-.navigation_bar li
+#navigation_banner li
 {
     float: left;
 }
 
-.navigation_bar li:last-child
+#navigation_banner li:last-child
 {
     position: relative;
     border-top: 52px solid #1A1A20;
@@ -74,7 +74,7 @@
     margin-right: -15px;
 }
 
-.navigation_bar_content
+.navigation_banner_content
 {
     padding: 5px 0px;
     margin-left: 8px;
@@ -84,12 +84,12 @@
     text-decoration: none;
 }
 
-.navigation_bar a:hover, .navigation_bar a:visited, .navigation_bar a:link, .navigation_bar a:active
+#navigation_banner a:hover, #navigation_banner a:visited, #navigation_banner a:link, #navigation_banner a:active
 {
     text-decoration: none;
 }
 
-.navigation_bar_content h1
+.navigation_banner_content h1
 {
     display: inline;
     font-family: 'Agency FB', sans-serif;
@@ -98,10 +98,10 @@
     white-space: nowrap;
 
     margin: 10px;
-    color: var(--base_font_colour);
+    color: white;
 }
 
-.navigation_bar_content:hover
+.navigation_banner_content:hover
 {
     background-color: forestgreen;
 

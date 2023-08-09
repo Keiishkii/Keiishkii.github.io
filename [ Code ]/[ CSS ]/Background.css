@@ -1,0 +1,41 @@
+body
+{
+    background-color: black;
+    margin: 0px;
+}
+
+#background_container
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    position: center;
+    z-index: -10;
+}
+
+#background_image
+{
+    position: relative;
+    display: block;
+    background-position: center;
+}
+
+#shadow_container
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    position: center;
+    z-index: -9;
+}
+
+#shadow_image
+{
+    position: relative;
+    display: block;
+    background-position: center;
+
+    opacity: 0.5;
+}

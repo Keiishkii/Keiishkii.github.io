@@ -1,6 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/agency-fb');
 
-#banner
+#title_banner
 {
     position: absolute;
 
@@ -15,7 +15,7 @@
     z-index: 20;
 }
 
-.banner_foreground
+.title_banner_foreground
 {
     position: relative;
     min-width: 100%;
@@ -26,7 +26,7 @@
     box-shadow: 0px 5px 20px 0px #000000;
 }
 
-.banner_foreground h1
+.title_banner_foreground h1
 {
     text-align: center;
     margin: 0;
@@ -37,7 +37,7 @@
 
     font-size: min(50px, max(5vw, 20px));
 
-    color: var(--base_font_colour);
+    color: white;
 
     text-shadow: 0.25vw 0.25vw #000;
 }
