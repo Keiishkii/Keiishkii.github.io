@@ -1,9 +1,15 @@
+:root
+{
+    --navigation_banner_font_size: 36px;
+    --navigation_banner_height: 44px;
+    --navigation_banner_last_element_width: 0px;
+}
+
 #navigation_banner_container
 {
     position: fixed;
     width: 100%;
 
-    margin-top: calc(var(--navigation_panel_top_margin) - 2px);
     top: 100px;
 
     overflow: hidden;
@@ -13,7 +19,6 @@
 
 #navigation_banner
 {
-    height: 52px;
     width: max(100%, 2000px);
 }
 
@@ -38,10 +43,11 @@
 
     float: right;
 
-    margin-top: -60px;
+    margin-top: calc(-8px - var(--navigation_banner_height));
     margin-right: -28px;
 
-    border-top: 69px solid #101013;
+    border-top: calc(var(--navigation_banner_height) + 16px) solid #101013;
+    border-left: 20px solid #101013;
     border-right: 20px solid transparent;
 }
 
@@ -51,7 +57,7 @@
     padding: 0px;
 
     width: fit-content;
-    height: 52px;
+    height: var(--navigation_banner_height);
 
     overflow: no-display;
 
@@ -65,21 +71,24 @@
     float: left;
 }
 
-#navigation_banner li:last-child
-{
-    position: relative;
-    border-top: 52px solid #1A1A20;
-    border-right: 15px solid transparent;
 
-    margin-right: -15px;
+li .navigation_banner_content
+{
+    padding: 5px 10px;
+    margin-left: 8px;
+    background-color: #1A1A20;
+    height: calc(var(--navigation_banner_height) - 10px);
+
+    text-decoration: none;
 }
 
-.navigation_banner_content
+li:last-child .navigation_banner_content
 {
     padding: 5px 0px;
     margin-left: 8px;
-    background-color: #1A1A20;
-    height: 42px;
+    background-color: transparent;
+    height: calc(var(--navigation_banner_height) - 10px);
+    clip-path: polygon(0% 0%, 115% 0%, 100% 100%, 0% 100%);
 
     text-decoration: none;
 }
@@ -93,17 +102,89 @@
 {
     display: inline;
     font-family: 'Agency FB', sans-serif;
-    font-size: 36px;
+    font-size: var(--navigation_banner_font_size);
 
     white-space: nowrap;
-
-    margin: 10px;
+    padding: 0px 20px;
     color: white;
+
+    text-shadow: 2px 2px black;
 }
 
-.navigation_banner_content:hover
+
+
+li .navigation_banner_content:hover
 {
     background-color: forestgreen;
+    box-shadow: 0px 0px 5px #1A1A20 inset;
+}
+
+#navigation_banner li:last-child .navigation_banner_content:after
+{
+    position: relative;
+    display: block;
+    z-index: -1;
+
+    color: #1A1A20;
+
+    top: calc(5px - var(--navigation_banner_height));
+    right: 0px;
+    height: 20px;
+    width: calc(100%);
+    border-right: 15px solid transparent;
+    border-top: calc(var(--navigation_banner_height)) solid #1A1A20;
+    content: '';
+}
+
+
+
+
+
+
+#navigation_banner li:last-child .navigation_banner_content:hover:before
+{
+    position: relative;
+    display: block;
+    z-index: -1;
+
+    color: forestgreen;
+
+    left: 0px;
+    width: calc(100%);
+    height: 20px;
+    top: calc(5px - var(--navigation_banner_height));
+
+    border-top: calc(var(--navigation_banner_height)) solid black;
+    border-right: 15px solid transparent;
+
+    box-shadow: 0px 0px 5px #1A1A20 inset;
+    background-clip: border-box;
+}
+
+#navigation_banner li:last-child .navigation_banner_content:hover
+{
+    background: transparent;
+    clip-path: polygon(0% 0%, 115% 0%, 100% 100%, 0% 100%);
+}
+
+#navigation_banner li:last-child .navigation_banner_content:hover:after
+{
+    position: relative;
+    display: block;
+    z-index: -1;
+
+    color: forestgreen;
+
+    left: 0px;
+    width: calc(100%);
+    height: 20px;
+    top: calc(5px - var(--navigation_banner_height));
+
+    filter: blur(3px);
+    clip-path: polygon(0% 0%, 115% 0%, 100% 100%, 0% 100%);
+
+    border-top: calc(var(--navigation_banner_height)) solid forestgreen;
+    border-right: 15px solid transparent;
 
     box-shadow: 0px 0px 5px #1A1A20 inset;
 }

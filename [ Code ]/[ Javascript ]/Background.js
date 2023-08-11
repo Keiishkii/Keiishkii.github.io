@@ -1,4 +1,5 @@
 
+window.addEventListener('resize', () => Background.OnWindowResized(), false);
 document.addEventListener('DOMContentLoaded', () => Background.OnPageLoad(), false);
 
 const Background = {
@@ -35,6 +36,12 @@ const Background = {
                 Background.initialised = true;
             }
         });
+    },
+
+    OnWindowResized: function OnWindowResized()
+    {
+        Background.mousePosition = { x: 0, y: 0 };
+        Background.smoothedMousePosition = { x: 0, y: 0 };
     },
 
     ProcessBackgroundLogic: function ProcessBackgroundLogic()

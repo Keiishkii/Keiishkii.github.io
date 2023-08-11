@@ -22,7 +22,7 @@
     display: block;
     position: absolute;
 
-    width: 273px;
+    width: 238px;
 
     bottom: 0;
     right: 0;
@@ -49,7 +49,7 @@
     display: block;
     position: absolute;
 
-    width: 265px;
+    width: 230px;
 
     bottom: -0px;
     right: 0;
@@ -81,9 +81,6 @@
     position: absolute;
     pointer-events: all;
 
-    background-position: center;
-    background-size: cover;
-
     width: 48px;
     height: 48px;
 
@@ -91,21 +88,68 @@
     right: 8px;
 
     filter: drop-shadow(0px 0px 10px rgba(0,0,0,2));
+
+    background-color: #101013;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
 }
 
+
+#github_icon a, #linkedin_icon a, #youtube_icon a, #email_icon a
+{
+    position: absolute;
+
+    width: 90%;
+    height: 90%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#github_icon a div, #linkedin_icon a div, #youtube_icon a div, #email_icon a div
+{
+    position: absolute;
+
+    width: 65%;
+    height: 65%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-position: center;
+    background-size: cover;
+}
+
+.shadow
+{
+    filter: brightness(0%) blur(5px);
+}
 
 
 #github_icon:hover, #linkedin_icon:hover, #youtube_icon:hover, #email_icon:hover
 {
-     filter: drop-shadow(0px 0px 2px rgba(255,255,255,5));
+    z-index: 1;
+
+    background-color: black;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
 }
 
-#github_icon:active, #linkedin_icon:active, #youtube_icon:active, #email_icon:active
+#github_icon:hover:before, #linkedin_icon:hover:before, #youtube_icon:hover:before, #email_icon:hover:before
 {
-    filter: drop-shadow(0px 0px 4px rgba(255,255,255,5));
+    z-index: 0;
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: forestgreen;
+    filter: blur(3px);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+    content: '';
 }
 
-#github_icon { right: 208px; }
-#linkedin_icon { right: 144px; }
-#youtube_icon { right: 80px; }
-#email_icon { right: 16px; }
+#github_icon { right: 176px; }
+#linkedin_icon { right: 120px; }
+#youtube_icon { right: 64px; }
+#email_icon { right: 8px; }

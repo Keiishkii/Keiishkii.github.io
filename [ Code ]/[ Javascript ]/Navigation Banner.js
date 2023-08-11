@@ -4,27 +4,60 @@ document.addEventListener('DOMContentLoaded', () => NavigationBanner.OnPageLoad(
 
 const NavigationBanner = {
 
-    titleBanner : { },
-    navigationBanner : { },
+    root: { },
 
+    titleBanner: { },
+    titleBannerText: { },
+    navigationBanner: { },
+
+    lastLinkElement: {},
+
+    minFontSize: 16,
+    minHeightSize: 25,
 
 
     OnPageLoad: function OnPageLoad()
     {
-        NavigationBanner.titleBanner = document.getElementById("title_banner");
-        NavigationBanner.navigationBanner = document.getElementById("navigation_banner_container");
+        NavigationBanner.root = document.querySelector(':root');
 
+        NavigationBanner.titleBanner = document.getElementById("title_banner");
+        NavigationBanner.titleBannerText = document.getElementById("title_banner_foreground").querySelector('h1');
+
+        NavigationBanner.navigationBanner = document.getElementById("navigation_banner_container");
         NavigationBanner.OnWindowResized();
 
-        console.log("Page Load");
+        let navigationLinkElements = document.getElementById("navigation_banner").getElementsByTagName("li");
+
+        NavigationBanner.lastLinkElement = navigationLinkElements.item(navigationLinkElements.length - 1);
+        let secondToLastLinkElement = navigationLinkElements.item(navigationLinkElements.length - 2);
+
+        /*
+        secondToLastLinkElement.addEventListener("mouseover", () =>
+        {
+            NavigationBanner.lastLinkElement.style.borderTopColor = "forestgreen"
+        })
+
+        secondToLastLinkElement.addEventListener("mouseout", () =>
+        {
+            NavigationBanner.lastLinkElement.style.borderTopColor = "#1A1A20"
+        })
+        */
     },
 
     OnWindowResized: function OnWindowResized()
     {
-        let titleBannerHeight = NavigationBanner.titleBanner.clientHeight;
+        let fontStyle = window.getComputedStyle(NavigationBanner.titleBannerText).getPropertyValue('font-size');
+        let fontSize = parseFloat(fontStyle);
 
-        NavigationBanner.navigationBanner.style.top = titleBannerHeight + "px";
+        let topDisplacement = NavigationBanner.titleBanner.clientHeight;
 
-        console.log("Resized: " + titleBannerHeight);
+        let scaledFontSize = Math.max(NavigationBanner.minFontSize, (fontSize * 0.65));
+        let scaledHeight = Math.max(NavigationBanner.minHeightSize, (topDisplacement * 0.5));
+
+        NavigationBanner.navigationBanner.style.top = (topDisplacement - 1) + "px";
+
+        NavigationBanner.root.style.setProperty('--navigation_banner_font_size', (scaledFontSize) + "px");
+        NavigationBanner.root.style.setProperty('--navigation_banner_height', (scaledHeight) + "px");
+        NavigationBanner.root.style.setProperty('--navigation_banner_last_element_width', (scaledHeight) + "px");
     }
 }
