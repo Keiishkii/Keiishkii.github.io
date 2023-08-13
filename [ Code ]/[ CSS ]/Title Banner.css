@@ -5,9 +5,10 @@
     --title_banner_font_size: min(50px, max(5vw, 20px));
 }
 
+
 #title_banner
 {
-    position: absolute;
+    position: fixed;
 
     top: 0;
 

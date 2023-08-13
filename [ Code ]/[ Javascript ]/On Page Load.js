@@ -11,12 +11,11 @@ function InsertAdditionalHTML()
     {
         let element = elementList[i];
 
-        let bodyFile = element.getAttribute("insert-html-in-body");
+        let file = element.getAttribute("insert-html");
+        InsertHTMLIntoDocumentBody(element, file);
 
-        InsertHTMLIntoDocumentBody(element, bodyFile);
-
-        let headFile = element.getAttribute("insert-html-in-head");
-        InsertHTMLIntoDocumentHead(element, headFile);
+        //let headFile = element.getAttribute("insert-html-in-head");
+        //InsertHTMLIntoDocumentHead(element, headFile);
     }
 }
 
@@ -68,6 +67,7 @@ function InsertHTMLIntoDocumentHead(element, file)
 function InsertHTMLIntoDocumentBody(element, file)
 {
     if (!file) return;
+    console.log(file);
 
     /* Make an HTTP request using the attribute value as the file name: */
     let httpRequest = new XMLHttpRequest();
@@ -86,11 +86,11 @@ function InsertHTMLIntoDocumentBody(element, file)
                 console.log("body element error");
             }
 
-            element.removeAttribute("insert-html-in-body");
+            element.removeAttribute("insert-html");
             InsertAdditionalHTML();
         }
     }
 
-    httpRequest.open("GET", file, true);
+    httpRequest.open("GET", file, false);
     httpRequest.send();
 }

@@ -82,17 +82,6 @@ li .navigation_banner_content
     text-decoration: none;
 }
 
-li:last-child .navigation_banner_content
-{
-    padding: 5px 0px;
-    margin-left: 8px;
-    background-color: transparent;
-    height: calc(var(--navigation_banner_height) - 10px);
-    clip-path: polygon(0% 0%, 115% 0%, 100% 100%, 0% 100%);
-
-    text-decoration: none;
-}
-
 #navigation_banner a:hover, #navigation_banner a:visited, #navigation_banner a:link, #navigation_banner a:active
 {
     text-decoration: none;
@@ -119,6 +108,22 @@ li .navigation_banner_content:hover
     box-shadow: 0px 0px 5px #1A1A20 inset;
 }
 
+
+
+
+
+
+li:last-child .navigation_banner_content
+{
+    padding: 5px 0px;
+    margin-left: 8px;
+    background-color: transparent;
+    height: calc(var(--navigation_banner_height) - 10px);
+    clip-path: polygon(0% 0%, 115% 0%, 100% 100%, 0% 100%);
+
+    text-decoration: none;
+}
+
 #navigation_banner li:last-child .navigation_banner_content:after
 {
     position: relative;
@@ -128,16 +133,13 @@ li .navigation_banner_content:hover
     color: #1A1A20;
 
     top: calc(5px - var(--navigation_banner_height));
-    right: 0px;
+    right: 0;
     height: 20px;
     width: calc(100%);
     border-right: 15px solid transparent;
-    border-top: calc(var(--navigation_banner_height)) solid #1A1A20;
+    border-top: calc(var(--navigation_banner_height) + 3px) solid #1A1A20;
     content: '';
 }
-
-
-
 
 
 
@@ -185,6 +187,4 @@ li .navigation_banner_content:hover
 
     border-top: calc(var(--navigation_banner_height)) solid forestgreen;
     border-right: 15px solid transparent;
-
-    box-shadow: 0px 0px 5px #1A1A20 inset;
 }

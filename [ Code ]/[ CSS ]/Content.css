@@ -1,0 +1,72 @@
+#content_container_root
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin: 0;
+    padding: 0;
+
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+#content_container_center
+{
+    position: relative;
+    top: 0;
+
+    margin-left: calc(10vw - 50px);
+    margin-right: calc(10vw - 50px);
+
+    width: 80vw;
+    height: fit-content;
+}
+
+#content_container
+{
+    position: relative;
+    width: 100%;
+
+    margin-top: 180px;
+    margin-bottom: 40px;
+
+    top: 0;
+    min-height: 100px;
+
+    background-color: #000000BB;
+    box-shadow: 0 0 5px;
+
+    padding: 20px 50px 20px 50px;
+
+    border-radius: 20px;
+    border: 10px black;
+    color: #282828;
+}
+
+.content_fade_overlay
+{
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    clip-path: inset(0 0 0 0);
+}
+
+#content_container p
+{
+    color: whitesmoke;
+    font-family: 'Monaco', sans-serif;
+}
+
+#content_container h1
+{
+    text-align: center;
+
+    font-family: 'Agency FB', sans-serif;
+    color: whitesmoke;
+}
