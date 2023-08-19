@@ -48,6 +48,7 @@
 .content_fade_overlay
 {
     position: absolute;
+    pointer-events: none;
 
     top: 0;
     left: 0;
@@ -57,13 +58,13 @@
     clip-path: inset(0 0 0 0);
 }
 
-#content_container p
+#content_container #page_content p
 {
     color: whitesmoke;
     font-family: 'Monaco', sans-serif;
 }
 
-#content_container h1
+#content_container #page_title h1
 {
     text-align: center;
 
