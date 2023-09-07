@@ -13,7 +13,6 @@
     top: 100px;
 
     overflow: hidden;
-
     z-index: 10;
 }
 
@@ -97,7 +96,7 @@ li .navigation_banner_content
     padding: 0px 20px;
     color: white;
 
-    text-shadow: 2px 2px black;
+    text-shadow: 3px 3px black;
 }
 
 

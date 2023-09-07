@@ -1,3 +1,8 @@
+:root
+{
+    --pagePreviewShadowBackgroundColour: black;
+}
+
 .page_preview_container
 {
     position: relative;
@@ -8,11 +13,12 @@
     margin: 30px 0 40px 0;
 
     width: 100%;
-    height: 250px;
+    height: 175px;
 }
 
 .page_preview_image_container
 {
+    pointer-events: none;
     position: absolute;
     top: 0;
 
@@ -26,32 +32,85 @@
 }
 
 
+.page_preview_image_shadow
+{
+    pointer-events: none;
+    position: absolute;
+    width: 350px;
+    height: 185px;
 
+    filter: blur(6px);
+}
+
+.page_preview_image_shadow:before
+{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--pagePreviewShadowBackgroundColour);
+    clip-path: polygon(
+            10px 0px,
+            260px 0px,
+            270px 10px,
+            270px 80px,
+            250px 100px,
+            250px 175px,
+            240px 185px,
+            10px 185px,
+            0px 175px,
+            0px 10px);
+}
 
 .page_preview_image_background
 {
+    pointer-events: none;
     position: absolute;
     width: 350px;
-    height: 250px;
+    height: 185px;
     background-color: black;
 
-    clip-path: polygon(10px 0px, 260px 0px, 270px 10px, 270px 80px, 250px 100px, 250px 240px, 240px 250px, 10px 250px, 0px 240px, 0px 10px);
+    clip-path: polygon(
+            10px 0px,
+            260px 0px,
+            270px 10px,
+            270px 80px,
+            250px 100px,
+            250px 175px,
+            240px 185px,
+            10px 185px,
+            0px 175px,
+            0px 10px);
 }
 
 .page_preview_image
 {
+    pointer-events: none;
     position: absolute;
 
     width: 350px;
-    height: 250px;
+    height: 185px;
 
     background-color: whitesmoke;
     background-size: cover;
-    background-position: -80px 0;
+    background-position: -50px -10px;
 
     z-index: 2;
 
-    clip-path: polygon(15px 5px, 255px 5px, 265px 15px, 265px 75px, 245px 95px, 245px 235px, 235px 245px, 15px 245px, 5px 235px, 5px 15px);
+    clip-path: polygon(
+            15px 5px,
+            255px 5px,
+            265px 15px,
+            265px 75px,
+            245px 95px,
+            245px 170px,
+            235px 180px,
+            15px 180px,
+            5px 170px,
+            5px 15px);
 }
 
 
@@ -60,20 +119,27 @@
     position: relative;
     top: 10px;
     bottom:10px;
-    width: 100%;
+    left: 10px;
+
+    width: calc(100% - 10px);
+    box-shadow: 0 0 20px #000000AA;
+    height: 160px;
+
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .page_preview_content:hover
 {
-    background-color: red;
-
     position: relative;
     top: 10px;
     bottom:10px;
+    left: 10px;
 
     border: red 20px;
+    box-shadow: 0 0 10px var(--pagePreviewShadowBackgroundColour);
 
-    width: 100%;
+    width: calc(100% - 10px);
 
     margin: 0;
 }
@@ -98,7 +164,8 @@
     font-family: 'Agency FB', sans-serif;
     padding: 0 0 0 300px;
 
-    line-height: 0px;
+    line-height: 0;
+    text-shadow: 4px 4px black;
     transform: translate(0, 50%);
 
     margin: auto;
@@ -115,7 +182,7 @@
     margin: 0;
 
     top: 70px;
-    height: 160px;
+    height: 90px;
     width: 100%;
 }
 
@@ -124,7 +191,7 @@
     color: whitesmoke;
     font-size: 14px;
     font-family: 'Monaco', sans-serif;
-    padding: 0 0 0 350px;
+    padding: 0 40px 0 275px;
 
     height: 100%;
     text-align: left;

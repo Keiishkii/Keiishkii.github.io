@@ -3,7 +3,6 @@ window.addEventListener('resize', () => NavigationBanner.OnWindowResized(), fals
 document.addEventListener('DOMContentLoaded', () => NavigationBanner.OnPageLoad(), false);
 
 const NavigationBanner = {
-
     root: { },
 
     titleBanner: { },
