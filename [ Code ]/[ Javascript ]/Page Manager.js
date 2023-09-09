@@ -1,4 +1,5 @@
 window.addEventListener('resize', () => PageManager.OnPageResized(), false);
+window.addEventListener('resize', () => PageManager.OnPageResized(), false);
 document.addEventListener('DOMContentLoaded', function()
 {
     PageManager.OnPageLoad();
@@ -10,7 +11,11 @@ const PageManager =
     initialisation: new Event("initialisation"),
     postInitialisation: new Event("post-initialisation"),
 
+    update: new Event("update"),
     pageResized: new Event("page-resized"),
+
+    timeSincePageLoad: 0,
+
 
     OnPageLoad: function OnPageLoad()
     {
@@ -28,16 +33,15 @@ const PageManager =
         document.dispatchEvent(PageManager.preInitialisation);
         document.dispatchEvent(PageManager.initialisation);
         document.dispatchEvent(PageManager.postInitialisation);
+
+        window.requestAnimationFrame(PageManager.Update);
+    },
+
+    Update: function Update(timeStamp)
+    {
+        PageManager.timeSincePageLoad = timeStamp / 1000;
+
+        document.dispatchEvent(PageManager.update);
+        window.requestAnimationFrame(PageManager.Update);
     }
-}
-
-
-function test(callback)
-{
-    callback();
-}
-
-function log()
-{
-    console.log("AAAAA")
 }

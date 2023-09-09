@@ -65,14 +65,69 @@
             0px 10px);
 }
 
-.page_preview_image_background
+
+.page_preview_image_inline_shadow
 {
     pointer-events: none;
     position: absolute;
     width: 350px;
     height: 185px;
-    background-color: black;
+    z-index: 2;
 
+    filter: blur(10px);
+    clip-path: polygon(
+            15px 5px,
+            255px 5px,
+            265px 15px,
+            265px 75px,
+            245px 95px,
+            245px 170px,
+            235px 180px,
+            15px 180px,
+            5px 170px,
+            5px 15px);
+}
+
+.page_preview_image_inline_shadow:before
+{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 100%,
+            0 100%,
+            0 0,
+
+            15px 25px,
+            15px 160px,
+            25px 170px,
+            225px 170px,
+            235px 160px,
+            235px 85px,
+            255px 65px,
+            255px 25px,
+            245px 15px,
+            25px 15px,
+            15px 25px);
+}
+
+
+.page_preview_image_frame
+{
+    pointer-events: none;
+    position: absolute;
+    width: 350px;
+    height: 185px;
+    background-image: linear-gradient(10deg, #050505, #101013);
+
+    z-index: 3;
     clip-path: polygon(
             10px 0px,
             260px 0px,
@@ -83,8 +138,60 @@
             240px 185px,
             10px 185px,
             0px 175px,
-            0px 10px);
+            0px 10px,
+            10px 0px,
+
+            15px 25px,
+            15px 160px,
+            25px 170px,
+            225px 170px,
+            235px 160px,
+            235px 85px,
+            255px 65px,
+            255px 25px,
+            245px 15px,
+            25px 15px,
+            15px 25px);
 }
+
+.page_preview_image_frame_decor
+{
+    pointer-events: none;
+    position: absolute;
+    width: 350px;
+    height: 185px;
+    background-image: linear-gradient(10deg, #101013, #151520);
+
+    z-index: 3;
+    clip-path: polygon(
+            12px 5px,
+            258px 5px,
+            265px 12px,
+            265px 78px,
+            245px 98px,
+            245px 173px,
+            238px 180px,
+            12px 180px,
+            5px 173px,
+            5px 12px,
+            12px 5px,
+
+            10px 23px,
+            10px 162px,
+            23px 175px,
+            227px 175px,
+            240px 162px,
+            240px 87px,
+            260px 67px,
+            260px 23px,
+            247px 10px,
+            23px 10px,
+            10px 23px);
+}
+
+
+
+
 
 .page_preview_image
 {
@@ -98,7 +205,7 @@
     background-size: cover;
     background-position: -50px -10px;
 
-    z-index: 2;
+    z-index: 1;
 
     clip-path: polygon(
             15px 5px,

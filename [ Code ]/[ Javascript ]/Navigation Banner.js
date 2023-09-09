@@ -4,6 +4,11 @@ document.addEventListener('initialisation', () =>
     NavigationBanner.OnPageLoad()
 }, false);
 
+document.addEventListener('update', () =>
+{
+    NavigationBanner.Update()
+}, false);
+
 const NavigationBanner =
 {
     root: { },
@@ -32,19 +37,17 @@ const NavigationBanner =
         let navigationLinkElements = document.getElementById("navigation_banner").getElementsByTagName("li");
 
         NavigationBanner.lastLinkElement = navigationLinkElements.item(navigationLinkElements.length - 1);
-        let secondToLastLinkElement = navigationLinkElements.item(navigationLinkElements.length - 2);
+    },
 
-        /*
-        secondToLastLinkElement.addEventListener("mouseover", () =>
-        {
-            NavigationBanner.lastLinkElement.style.borderTopColor = "forestgreen"
-        })
+    Update: function Update()
+    {
+        let innerRingRadius = 40 + 33 * ((1 + Math.sin(PageManager.timeSincePageLoad * 0.5)) / 2);
+        let outerRingRadius = 65 + 10 * ((1 + Math.sin(PageManager.timeSincePageLoad * 0.5)) / 2);
 
-        secondToLastLinkElement.addEventListener("mouseout", () =>
-        {
-            NavigationBanner.lastLinkElement.style.borderTopColor = "#1A1A20"
-        })
-        */
+        console.log(PageManager.timeSincePageLoad)
+
+        NavigationBanner.root.style.setProperty('--inner_ring_radius', (innerRingRadius) + "%");
+        NavigationBanner.root.style.setProperty('--outer_ring_radius', (outerRingRadius) + "%");
     },
 
     OnWindowResized: function OnWindowResized()
