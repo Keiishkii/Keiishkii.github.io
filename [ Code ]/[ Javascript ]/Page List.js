@@ -1,7 +1,10 @@
+document.addEventListener('initialisation', () =>
+{
+    PageList.OnPageLoad()
+}, false);
 
-document.addEventListener('DOMContentLoaded', () => PageList.OnPageLoad(), false);
-
-const PageList = {
+const PageList =
+{
     root: { },
 
     pageListEntries: [],

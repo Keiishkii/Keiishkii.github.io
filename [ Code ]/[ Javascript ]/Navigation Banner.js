@@ -1,8 +1,11 @@
+document.addEventListener('page-resized', () => NavigationBanner.OnWindowResized(), false);
+document.addEventListener('initialisation', () =>
+{
+    NavigationBanner.OnPageLoad()
+}, false);
 
-window.addEventListener('resize', () => NavigationBanner.OnWindowResized(), false);
-document.addEventListener('DOMContentLoaded', () => NavigationBanner.OnPageLoad(), false);
-
-const NavigationBanner = {
+const NavigationBanner =
+{
     root: { },
 
     titleBanner: { },
@@ -17,6 +20,7 @@ const NavigationBanner = {
 
     OnPageLoad: function OnPageLoad()
     {
+        console.log("OnPageLoad")
         NavigationBanner.root = document.querySelector(':root');
 
         NavigationBanner.titleBanner = document.getElementById("title_banner");
@@ -45,6 +49,7 @@ const NavigationBanner = {
 
     OnWindowResized: function OnWindowResized()
     {
+        console.log("OnResize")
         let fontStyle = window.getComputedStyle(NavigationBanner.titleBannerText).getPropertyValue('font-size');
         let fontSize = parseFloat(fontStyle);
 

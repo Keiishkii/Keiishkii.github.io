@@ -1,6 +1,8 @@
-
 window.addEventListener('resize', () => Background.OnWindowResized(), false);
-document.addEventListener('DOMContentLoaded', () => Background.OnPageLoad(), false);
+document.addEventListener('initialisation', () =>
+{
+    Background.OnPageLoad()
+}, false);
 
 const Background = {
 

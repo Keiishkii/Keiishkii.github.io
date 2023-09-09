@@ -1,6 +1,8 @@
-
 window.addEventListener('resize', () => Content.OnWindowResized(), false);
-document.addEventListener('DOMContentLoaded', () => Content.OnPageLoad(), false);
+document.addEventListener('initialisation', () =>
+{
+    Content.OnPageLoad()
+}, false);
 
 
 
