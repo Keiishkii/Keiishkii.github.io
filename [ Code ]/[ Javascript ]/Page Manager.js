@@ -1,5 +1,4 @@
 window.addEventListener('resize', () => PageManager.OnPageResized(), false);
-window.addEventListener('resize', () => PageManager.OnPageResized(), false);
 document.addEventListener('DOMContentLoaded', function()
 {
     PageManager.OnPageLoad();
@@ -7,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function()
 
 const PageManager =
 {
+    root: { },
+
     preInitialisation: new Event("pre-initialisation"),
     initialisation: new Event("initialisation"),
     postInitialisation: new Event("post-initialisation"),
@@ -19,8 +20,8 @@ const PageManager =
 
     OnPageLoad: function OnPageLoad()
     {
+        PageManager.root = document.querySelector(':root');
         IncludeHTML.IncludeHTML(PageManager.Initialise);
-        //test(PageManager.Initialise);
     },
 
     OnPageResized: function OnPageResized()

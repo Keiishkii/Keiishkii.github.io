@@ -37,8 +37,6 @@ const Content =
     {
         let margin = (((Content.centeringTopMargin + window.innerHeight - Content.centeringBottomMargin) * 0.5) - (Content.contentContainer.clientHeight * 0.5));
         let trueMargin = Math.max(margin, Content.minimumTopMargin);
-
-        console.log("AAA: " + trueMargin);
         Content.contentContainer.style.marginTop = trueMargin + "px";
     }
 }

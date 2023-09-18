@@ -11,8 +11,6 @@ document.addEventListener('update', () =>
 
 const NavigationBanner =
 {
-    root: { },
-
     titleBanner: { },
     titleBannerText: { },
     navigationBanner: { },
@@ -26,7 +24,6 @@ const NavigationBanner =
     OnPageLoad: function OnPageLoad()
     {
         console.log("OnPageLoad")
-        NavigationBanner.root = document.querySelector(':root');
 
         NavigationBanner.titleBanner = document.getElementById("title_banner");
         NavigationBanner.titleBannerText = document.getElementById("title_banner_foreground").querySelector('h1');
@@ -44,15 +41,12 @@ const NavigationBanner =
         let innerRingRadius = 40 + 33 * ((1 + Math.sin(PageManager.timeSincePageLoad * 0.5)) / 2);
         let outerRingRadius = 65 + 10 * ((1 + Math.sin(PageManager.timeSincePageLoad * 0.5)) / 2);
 
-        console.log(PageManager.timeSincePageLoad)
-
-        NavigationBanner.root.style.setProperty('--inner_ring_radius', (innerRingRadius) + "%");
-        NavigationBanner.root.style.setProperty('--outer_ring_radius', (outerRingRadius) + "%");
+        PageManager.root.style.setProperty('--inner_ring_radius', (innerRingRadius) + "%");
+        PageManager.root.style.setProperty('--outer_ring_radius', (outerRingRadius) + "%");
     },
 
     OnWindowResized: function OnWindowResized()
     {
-        console.log("OnResize")
         let fontStyle = window.getComputedStyle(NavigationBanner.titleBannerText).getPropertyValue('font-size');
         let fontSize = parseFloat(fontStyle);
 
@@ -63,8 +57,8 @@ const NavigationBanner =
 
         NavigationBanner.navigationBanner.style.top = (topDisplacement - 1) + "px";
 
-        NavigationBanner.root.style.setProperty('--navigation_banner_font_size', (scaledFontSize) + "px");
-        NavigationBanner.root.style.setProperty('--navigation_banner_height', (scaledHeight) + "px");
-        NavigationBanner.root.style.setProperty('--navigation_banner_last_element_width', (scaledHeight) + "px");
+        PageManager.root.style.setProperty('--navigation_banner_font_size', (scaledFontSize) + "px");
+        PageManager.root.style.setProperty('--navigation_banner_height', (scaledHeight) + "px");
+        PageManager.root.style.setProperty('--navigation_banner_last_element_width', (scaledHeight) + "px");
     }
 }
