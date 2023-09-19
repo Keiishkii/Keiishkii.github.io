@@ -16,6 +16,7 @@ const PageManager =
     pageResized: new Event("page-resized"),
 
     timeSincePageLoad: 0,
+    deltaTime: 0,
 
 
     OnPageLoad: function OnPageLoad()
@@ -40,7 +41,10 @@ const PageManager =
 
     Update: function Update(timeStamp)
     {
-        PageManager.timeSincePageLoad = timeStamp / 1000;
+        let timeInSeconds = timeStamp / 1000;
+
+        PageManager.deltaTime = timeInSeconds - PageManager.timeSincePageLoad;
+        PageManager.timeSincePageLoad = timeInSeconds;
 
         document.dispatchEvent(PageManager.update);
         window.requestAnimationFrame(PageManager.Update);

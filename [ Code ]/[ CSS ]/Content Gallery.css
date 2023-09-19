@@ -89,11 +89,11 @@
     cursor: pointer;
     position: relative;
 
-    left: calc(var(--cell_size) * 0.05);
-    top: calc(var(--cell_size) * 0.05);
+    left: calc(var(--cell_size) * 0.1);
+    top: calc(var(--cell_size) * 0.1);
 
-    width: calc(var(--cell_size) * 0.90);
-    height: calc(var(--cell_size) * 0.90);
+    width: calc(var(--cell_size) * 0.80);
+    height: calc(var(--cell_size) * 0.80);
 
     border-style: solid;
     border-width: 2px;
@@ -109,35 +109,9 @@
     z-index: 1;
 }
 
-.cell-image:hover
-{
-    position: relative;
-
-    left: 0;
-    top: 0;
-
-    width: calc(var(--cell_size));
-    height: calc(var(--cell_size));
-
-    transform: translate(-4px, -4px);
-
-    border-style: solid;
-    border-width: 4px;
-    border-color: black;
-    border-radius: 5px;
-
-    overflow: hidden;
-    box-shadow: 0px 0px 10px white;
-
-    background-color: whitesmoke;
-    background-size: cover;
-
-    z-index: 2;
-}
-
-
 .cell-image .cell-title
 {
+    pointer-events: none;
     position: absolute;
     background-color: #000000AA;
 
