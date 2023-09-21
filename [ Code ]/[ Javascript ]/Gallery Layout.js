@@ -5,20 +5,23 @@ document.addEventListener('update', () => GalleryLayout.Update(), false);
 const GalleryLayout =
 {
     gridLayoutContainerElement: { },
+    imageDisplayElement: {},
 
     sizeOfGridCell: 350,
 
     scaleTransitionDuration: 0.125,
-    minImageScale: 0.8,
+    minImageScale: 0.9,
     maxImageScale: 1,
-
 
     focusLogicDictionary: {},
 
     OnPageLoad: function OnPageLoad()
     {
         GalleryLayout.gridLayoutContainerElement = document.getElementById("gallery_grid");
+        GalleryLayout.imageDisplayElement = document.getElementById("image_display");
+
         PageManager.root.style.setProperty('--cell_size', GalleryLayout.sizeOfGridCell + "px");
+        PageManager.root.style.setProperty('--min_cell_scale', GalleryLayout.minImageScale);
 
         GalleryLayout.ResizeLayout();
 
@@ -30,7 +33,14 @@ const GalleryLayout =
 
             listOfCells[i].addEventListener('mouseover', GalleryLayout.OnFocusGain);
             listOfCells[i].addEventListener('mouseout', GalleryLayout.OnFocusLost);
+            listOfCells[i].addEventListener("click", () =>
+            {
+                let url = listOfCells[i].style.backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
+                GalleryLayout.DisplayImage(url);
+            });
         }
+
+        GalleryLayout.imageDisplayElement.addEventListener("click", GalleryLayout.HideImage);
     },
 
     OnWindowResized: function OnWindowResized() { GalleryLayout.ResizeLayout(); },
@@ -135,4 +145,45 @@ const GalleryLayout =
         element.style.left = offset + "px";
         element.style.top = offset + "px";
     },
+
+    DisplayImage: function DisplayImage(imageURl)
+    {
+        GalleryLayout.imageDisplayElement.style.display = "block";
+        PageManager.EnableScrollLock();
+
+        let imageElement = document.getElementById("image");
+        imageElement.style.backgroundImage = `url("${imageURl}")`;
+
+        let image = new Image();
+        image.src = imageURl;
+
+        image.onload = () =>
+        {
+            let targetScale = 0.7;
+
+            let imageScale = (targetScale * window.innerWidth) / image.width;
+            console.log("Scale: " + imageScale);
+
+            if (imageScale * image.height > targetScale * window.innerHeight) imageScale = (targetScale * window.innerHeight) / image.height;
+
+            imageElement.style.width = (image.width * imageScale) + "px";
+            imageElement.style.height = (image.height * imageScale) + "px";
+
+            console.log("Top: " + ((1 - ((image.height * imageScale) / window.innerHeight)) / 2) + "%");
+            console.log("Left: " + ((1 - ((image.width * imageScale) / window.innerWidth)) / 2) + "%");
+
+            imageElement.style.position = "absolute";
+            imageElement.style.top = (100 * ((1 - ((image.height * imageScale) / window.innerHeight)) / 2)) + "%";
+            imageElement.style.left = (100 * ((1 - ((image.width * imageScale) / window.innerWidth)) / 2)) + "%";
+
+            console.log("Image Width: " + image.width);
+            console.log("Image Height: " + image.height);
+        };
+    },
+
+    HideImage: function HideImage()
+    {
+        GalleryLayout.imageDisplayElement.style.display = "none";
+        PageManager.DisableScrollLock();
+    }
 }

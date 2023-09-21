@@ -18,6 +18,10 @@ const PageManager =
     timeSincePageLoad: 0,
     deltaTime: 0,
 
+    topScrollPosition: 0,
+    leftScrollPosition: 0,
+
+
 
     OnPageLoad: function OnPageLoad()
     {
@@ -48,5 +52,23 @@ const PageManager =
 
         document.dispatchEvent(PageManager.update);
         window.requestAnimationFrame(PageManager.Update);
-    }
+    },
+
+
+
+    EnableScrollLock: function disableScroll()
+    {
+        PageManager.topScrollPosition = window.scrollX || document.documentElement.scrollTop;
+        PageManager.leftScrollPosition = window.scrollY || document.documentElement.scrollLeft,
+
+        window.onscroll = function()
+        {
+            window.scrollTo(PageManager.leftScrollPosition, PageManager.topScrollPosition);
+        };
+    },
+
+    DisableScrollLock: function enableScroll()
+    {
+        window.onscroll = function() {};
+    },
 }
