@@ -4,6 +4,8 @@
     --gallery_layout: auto auto auto;
 
     --cell_size: 200px;
+    --cell_font_size: 14px;
+
     --min_cell_scale: 0.8;
 }
 
@@ -102,9 +104,12 @@
     border-color: black;
     border-radius: 5px;
 
+    background-repeat: no-repeat;
+
     overflow: hidden;
     box-shadow: 0px 0px 10px black;
 
+    background-position: center;
     background-color: whitesmoke;
     background-size: cover;
 
@@ -135,15 +140,90 @@
     top: calc(50%);
     transform: translateY(-50%);
 
-    font-size: 28px;
+    font-size: var(--cell_font_size);
     text-shadow: 4px 4px black;
 
     font-family: 'Agency FB', sans-serif;
     color: whitesmoke;
-    word-wrap: break-word;
+    white-space: nowrap;
 }
 
+#gallery_control
+{
+    position: relative;
+    text-align: center;
 
+    background-color: #00000088;
+    margin: 0;
+    box-shadow: 0px 5px 10px black;
+    text-shadow: 4px 4px black;
+
+    font-family: 'Agency FB', sans-serif;
+    color: whitesmoke;
+
+    padding: 0;
+    height: 40px;
+}
+
+#gallery_control h1
+{
+    position: absolute;
+
+
+    left: calc(50% - 50px - 75px);
+    top: 9px;
+
+    width: 100px;
+
+    padding: 0;
+    margin: 0;
+
+    font-size: 20px;
+}
+
+#gallery_control .slider
+{
+    position: absolute;
+
+    left: calc(50% - 100px + 75px);
+    top: 9px;
+
+    -webkit-appearance: none;
+    width: 200px;
+    height: 20px;
+    background: #00000099;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 20px;
+}
+
+#gallery_control .slider:hover
+{
+    opacity: 1;
+}
+
+#gallery_control .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #282828;
+}
+
+#gallery_control .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #282828;
+}
 
 
 
@@ -164,10 +244,10 @@
 
 #image
 {
-    pointer-events: bounding-box;
     position: absolute;
 
-    background-size: 101%;
+    background-size: 100%;
+    background-repeat: no-repeat;
 
     box-shadow: 0 0 10px inset black;
 
@@ -178,17 +258,42 @@
 
 #image_display h1
 {
-    padding: 0;
+    position: absolute;
+
+    padding: 10px;
     margin: 0;
 
-    position: relative;
-    top: calc(50%);
-    transform: translateY(-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    font-size: 28px;
+    font-size: 4vmin;
     text-shadow: 4px 4px black;
 
     font-family: 'Agency FB', sans-serif;
     color: whitesmoke;
     word-wrap: break-word;
+}
+
+#image_display h1:before
+{
+    position: absolute;
+    content: "";
+
+    z-index: -1;
+
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+
+    width: 100%;
+
+    background-color: #000000AA;
+    filter: blur(10px);
+
+    border-radius: 5px;
+
+    margin: 0;
+    padding: 2px;
 }

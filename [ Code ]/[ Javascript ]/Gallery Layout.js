@@ -6,10 +6,21 @@ const GalleryLayout =
 {
     gridLayoutContainerElement: { },
     imageDisplayElement: {},
+    tileScaleSlider: {},
 
-    sizeOfGridCell: 350,
+    cellCount: 0,
 
-    scaleTransitionDuration: 0.125,
+    minimumSizeOfGridCell: 200,
+    maximumSizeOfGridCell: 500,
+
+    minimumSizeOfCellFont: 14,
+    maximumSizeOfCellFont: 32,
+
+    scaleWeight: 0,
+
+    focusGainScaleTransitionDuration: 0.125,
+    focusLossScaleTransitionDuration: 0.25,
+
     minImageScale: 0.9,
     maxImageScale: 1,
 
@@ -19,14 +30,16 @@ const GalleryLayout =
     {
         GalleryLayout.gridLayoutContainerElement = document.getElementById("gallery_grid");
         GalleryLayout.imageDisplayElement = document.getElementById("image_display");
+        GalleryLayout.tileScaleSlider = document.getElementById("tile-scaling-slider");
 
-        PageManager.root.style.setProperty('--cell_size', GalleryLayout.sizeOfGridCell + "px");
-        PageManager.root.style.setProperty('--min_cell_scale', GalleryLayout.minImageScale);
-
-        GalleryLayout.ResizeLayout();
+        GalleryLayout.scaleWeight = GalleryLayout.tileScaleSlider.value / 100;
 
         let listOfCells = document.getElementsByClassName('cell-image');
-        console.log("Count:" + listOfCells.length);
+        GalleryLayout.cellCount = listOfCells.length;
+
+        GalleryLayout.ResizeCells();
+        GalleryLayout.ResizeLayout();
+
         for (let i = 0; i < listOfCells.length; i++)
         {
             listOfCells[i].setAttribute('customID', "ID: " + i);
@@ -36,30 +49,48 @@ const GalleryLayout =
             listOfCells[i].addEventListener("click", () =>
             {
                 let url = listOfCells[i].style.backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
-                GalleryLayout.DisplayImage(url);
+
+                let text = "textContent" in document.body ? "textContent" : "innerText";
+                let title = listOfCells[i].getElementsByTagName("h1")[0][text];
+                console.log(`Title: ${title}`);
+
+                GalleryLayout.DisplayImage(url, title);
             });
         }
 
         GalleryLayout.imageDisplayElement.addEventListener("click", GalleryLayout.HideImage);
+        GalleryLayout.tileScaleSlider.addEventListener("input", () => GalleryLayout.OnTileScalingSliderChange(GalleryLayout.tileScaleSlider.value / 100));
     },
 
     OnWindowResized: function OnWindowResized() { GalleryLayout.ResizeLayout(); },
 
+    ResizeCells: function ResizeCells()
+    {
+        PageManager.root.style.setProperty('--cell_size', Maths.Lerp(GalleryLayout.minimumSizeOfGridCell, GalleryLayout.maximumSizeOfGridCell, GalleryLayout.scaleWeight) + "px");
+        PageManager.root.style.setProperty('--cell_font_size', Maths.Lerp(GalleryLayout.minimumSizeOfCellFont, GalleryLayout.maximumSizeOfCellFont, GalleryLayout.scaleWeight) + "px");
+        PageManager.root.style.setProperty('--min_cell_scale', GalleryLayout.minImageScale);
+    },
+
     ResizeLayout: function ResizeLayout()
     {
         let pageSize = document.body.clientWidth;
+        let cellSize = Maths.Lerp(GalleryLayout.minimumSizeOfGridCell, GalleryLayout.maximumSizeOfGridCell, GalleryLayout.scaleWeight);
 
         let baseWidth = (pageSize * 0.9) - 40
 
         let layout = "auto";
-        let width = 40 + GalleryLayout.sizeOfGridCell;
+        let width = 40 + cellSize;
 
-        if (GalleryLayout.sizeOfGridCell > 0)
+        if (cellSize > 0)
         {
-            for (let remainingColumnArea = baseWidth - GalleryLayout.sizeOfGridCell; remainingColumnArea > GalleryLayout.sizeOfGridCell; remainingColumnArea -= GalleryLayout.sizeOfGridCell)
+            let count = 0;
+            for (let remainingColumnArea = baseWidth - cellSize; remainingColumnArea > cellSize; remainingColumnArea -= cellSize)
             {
+                if (count >= GalleryLayout.cellCount - 1) break;
+
+                count++;
                 layout += " auto";
-                width += GalleryLayout.sizeOfGridCell;
+                width += cellSize;
             }
         }
 
@@ -92,13 +123,13 @@ const GalleryLayout =
         if (width)
         {
             let size = parseFloat(width);
-            let scale = size / GalleryLayout.sizeOfGridCell;
+            let scale = size / Maths.Lerp(GalleryLayout.minimumSizeOfGridCell, GalleryLayout.maximumSizeOfGridCell, GalleryLayout.scaleWeight);
             weight = Maths.InverseLerp(GalleryLayout.minImageScale, GalleryLayout.maxImageScale, scale);
         }
 
-        for (let timeElapsed = Maths.Lerp(0, GalleryLayout.scaleTransitionDuration, weight); timeElapsed < GalleryLayout.scaleTransitionDuration; timeElapsed += PageManager.deltaTime)
+        for (let timeElapsed = Maths.Lerp(0, GalleryLayout.focusGainScaleTransitionDuration, weight); timeElapsed < GalleryLayout.focusGainScaleTransitionDuration; timeElapsed += PageManager.deltaTime)
         {
-            let weight = Maths.InverseLerp(0, GalleryLayout.scaleTransitionDuration, timeElapsed);
+            let weight = Maths.InverseLerp(0, GalleryLayout.focusGainScaleTransitionDuration, timeElapsed);
             GalleryLayout.SetElementState(element, weight);
 
             yield;
@@ -115,19 +146,19 @@ const GalleryLayout =
         if (width)
         {
             let size = parseFloat(width);
-            let scale = size / GalleryLayout.sizeOfGridCell;
+            let scale = size / Maths.Lerp(GalleryLayout.minimumSizeOfGridCell, GalleryLayout.maximumSizeOfGridCell, GalleryLayout.scaleWeight);
             weight = Maths.InverseLerp(GalleryLayout.minImageScale, GalleryLayout.maxImageScale, scale);
         }
 
-        for (let timeElapsed = Maths.Lerp(0, GalleryLayout.scaleTransitionDuration, weight); timeElapsed > 0; timeElapsed -= PageManager.deltaTime)
+        for (let timeElapsed = Maths.Lerp(0, GalleryLayout.focusLossScaleTransitionDuration, weight); timeElapsed > 0; timeElapsed -= PageManager.deltaTime)
         {
-            let weight = Maths.InverseLerp(0, GalleryLayout.scaleTransitionDuration, timeElapsed);
+            let weight = Maths.InverseLerp(0, GalleryLayout.focusLossScaleTransitionDuration, timeElapsed);
             GalleryLayout.SetElementState(element, weight);
 
             yield;
         }
 
-        GalleryLayout.SetElementState(element, 0);
+        GalleryLayout.ResetElementState(element);
         delete GalleryLayout.focusLogicDictionary[id];
     },
 
@@ -136,8 +167,8 @@ const GalleryLayout =
         let minOffset = (1 - GalleryLayout.minImageScale) / 2;
         let maxOffset = (1 - GalleryLayout.maxImageScale) / 2;
 
-        let size = GalleryLayout.sizeOfGridCell * Maths.Lerp(GalleryLayout.minImageScale, GalleryLayout.maxImageScale, weight);
-        let offset = GalleryLayout.sizeOfGridCell * Maths.Lerp(minOffset, maxOffset, weight);
+        let size = Maths.Lerp(GalleryLayout.minimumSizeOfGridCell, GalleryLayout.maximumSizeOfGridCell, GalleryLayout.scaleWeight) * Maths.Lerp(GalleryLayout.minImageScale, GalleryLayout.maxImageScale, weight);
+        let offset = Maths.Lerp(GalleryLayout.minimumSizeOfGridCell, GalleryLayout.maximumSizeOfGridCell, GalleryLayout.scaleWeight) * Maths.Lerp(minOffset, maxOffset, weight);
 
         element.style.width = size + "px";
         element.style.height = size + "px";
@@ -146,13 +177,27 @@ const GalleryLayout =
         element.style.top = offset + "px";
     },
 
-    DisplayImage: function DisplayImage(imageURl)
+    ResetElementState: function ResetElementState(element)
+    {
+        element.style.width = "calc(var(--cell_size) * var(--min_cell_scale))";
+        element.style.height = "calc(var(--cell_size) * var(--min_cell_scale))";
+
+        element.style.left = "calc(var(--cell_size) * ((1 - var(--min_cell_scale)) / 2))";
+        element.style.top = "calc(var(--cell_size) * ((1 - var(--min_cell_scale)) / 2))";
+    },
+
+
+
+    DisplayImage: function DisplayImage(imageURl, title)
     {
         GalleryLayout.imageDisplayElement.style.display = "block";
         PageManager.EnableScrollLock();
 
         let imageElement = document.getElementById("image");
+        let imageTitleElement = document.getElementById("display-text").getElementsByTagName("h1")[0];
+
         imageElement.style.backgroundImage = `url("${imageURl}")`;
+        imageTitleElement.innerHTML = title;
 
         let image = new Image();
         image.src = imageURl;
@@ -162,22 +207,18 @@ const GalleryLayout =
             let targetScale = 0.7;
 
             let imageScale = (targetScale * window.innerWidth) / image.width;
-            console.log("Scale: " + imageScale);
-
             if (imageScale * image.height > targetScale * window.innerHeight) imageScale = (targetScale * window.innerHeight) / image.height;
 
             imageElement.style.width = (image.width * imageScale) + "px";
             imageElement.style.height = (image.height * imageScale) + "px";
 
-            console.log("Top: " + ((1 - ((image.height * imageScale) / window.innerHeight)) / 2) + "%");
-            console.log("Left: " + ((1 - ((image.width * imageScale) / window.innerWidth)) / 2) + "%");
-
             imageElement.style.position = "absolute";
             imageElement.style.top = (100 * ((1 - ((image.height * imageScale) / window.innerHeight)) / 2)) + "%";
             imageElement.style.left = (100 * ((1 - ((image.width * imageScale) / window.innerWidth)) / 2)) + "%";
 
-            console.log("Image Width: " + image.width);
-            console.log("Image Height: " + image.height);
+            console.log(imageTitleElement)
+            imageTitleElement.style.top = (100 * ((1 - ((image.height * imageScale) / window.innerHeight)) / 2)) + "%";
+            console.log(imageTitleElement.style.top)
         };
     },
 
@@ -185,5 +226,14 @@ const GalleryLayout =
     {
         GalleryLayout.imageDisplayElement.style.display = "none";
         PageManager.DisableScrollLock();
-    }
+    },
+
+    OnTileScalingSliderChange: function OnTileScalingSliderChange(value)
+    {
+        console.log("Value:" + value);
+        GalleryLayout.scaleWeight = value;
+
+        GalleryLayout.ResizeCells();
+        GalleryLayout.ResizeLayout();
+    },
 }
