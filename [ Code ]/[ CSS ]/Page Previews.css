@@ -3,18 +3,36 @@
     --pagePreviewShadowBackgroundColour: black;
 }
 
-.page_preview_container
+.page_preview_container:first-of-type
 {
     position: relative;
     background-color: transparent;
-
-    //color: #151515;
-    //box-shadow: 2px 2px 50px;
-    margin: 30px 0 40px 0;
+    margin: 30px 0 70px 0;
 
     width: 100%;
     height: 175px;
 }
+
+.page_preview_container
+{
+    position: relative;
+    background-color: transparent;
+    margin: 0px 0 60px 0;
+
+    width: 100%;
+    height: 175px;
+}
+
+.page_preview_container:last-of-type
+{
+    position: relative;
+    background-color: transparent;
+    margin: 0px 0 30px 0;
+
+    width: 100%;
+    height: 175px;
+}
+
 
 .page_preview_image_container
 {
@@ -220,6 +238,44 @@
             5px 15px);
 }
 
+.page_preview_image h1
+{
+    font-size: 20px;
+    text-shadow: 4px 4px black;
+
+    padding-top: 8px;
+    padding-left: 30px;
+
+    font-family: 'Agency FB', sans-serif;
+    color: whitesmoke;
+    word-wrap: break-word;
+}
+
+.page_preview_image h1:before
+{
+    position: absolute;
+    content: "";
+
+    z-index: -1;
+
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+
+    width: 45%;
+    height: 60px;
+
+    background-color: #000000CC;
+    filter: blur(8px);
+
+    border-radius: 20px;
+
+    margin: 0;
+    padding: 2px;
+}
+
+
 
 .page_preview_content
 {
@@ -269,7 +325,7 @@
     color: whitesmoke;
     font-size: 34px;
     font-family: 'Agency FB', sans-serif;
-    padding: 0 0 0 300px;
+    padding: 0 0 0 280px;
 
     line-height: 0;
     text-shadow: 4px 4px black;
@@ -279,6 +335,9 @@
 
     height: 100%;
     text-align: left;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .page_preview_description_container
@@ -298,8 +357,13 @@
     color: whitesmoke;
     font-size: 14px;
     font-family: 'Monaco', sans-serif;
-    padding: 0 40px 0 275px;
+    padding: 0 20px 0 265px;
 
-    height: 100%;
+    margin-bottom: 60px;
+
+    height: 73%;
     text-align: left;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
