@@ -33,28 +33,11 @@
 
     padding: 8px 12px 8px 0px;
 
-    background-color: #101013;
+    background-color: var(--base_colour_two);
     clip-path: polygon(0% 0%, 100% 0%, calc(100% - 26px) 100%, 0% 100%);
     filter: drop-shadow(0px 0px 10px rgba(0,0,0,1));
 }
 
-/*
-.navigation_banner_edge
-{
-    z-index: -1;
-    display: inline-block;
-    position: relative;
-
-    float: right;
-
-    margin-top: calc(-8px - var(--navigation_banner_height));
-    margin-right: -28px;
-
-    border-top: calc(var(--navigation_banner_height) + 16px) solid #101013;
-    border-left: 20px solid #101013;
-    border-right: 20px solid transparent;
-}
-*/
 
 #navigation_banner ul
 {
@@ -81,7 +64,7 @@ li .navigation_banner_content
 {
     padding: 5px 6px;
     margin-left: 8px;
-    background-color: #1A1A20;
+    background-color: var(--base_colour_one);
     height: calc(var(--navigation_banner_height) - 10px);
 
     text-decoration: none;
@@ -98,9 +81,9 @@ li:first-child .navigation_banner_content { margin-left: 0px; }
 .navigation_banner_content h1
 {
     display: inline;
-    font-family: 'Agency FB', sans-serif;
+    font-family: 'Georgia', sans-serif;
     font-size: var(--navigation_banner_font_size);
-
+    font-style: italic;
     white-space: nowrap;
     padding: 0px 20px;
     color: white;
@@ -112,9 +95,9 @@ li:first-child .navigation_banner_content { margin-left: 0px; }
 
 li .navigation_banner_content:hover
 {
-    background-color: forestgreen;
-    background-image: radial-gradient(circle, forestgreen var(--inner_ring_radius), limegreen var(--outer_ring_radius), forestgreen 85%, black 125%);
-    box-shadow: 0px 0px 5px #1A1A20 inset;
+    background-color: mediumseagreen;
+    background-image: radial-gradient(circle, orange var(--inner_ring_radius), #e1850f var(--outer_ring_radius), orange 85%, black 125%);
+    box-shadow: 0px 0px 5px #c2791c inset;
 }
 
 
@@ -127,7 +110,7 @@ li:last-child .navigation_banner_content
     pointer-events: bounding-box;
     padding: 5px 22px 5px 10px;
     margin-left: 8px;
-    background-color: #1A1A20;
+    background-color: var(--base_colour_one);
     background-position: -5px 0;
     height: calc(var(--navigation_banner_height) - 10px);
     clip-path: polygon(0% 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
@@ -144,25 +127,6 @@ li:last-child .navigation_banner_content
 
     //text-decoration: none;
 }
-
-/*
-#navigation_banner li:last-child .navigation_banner_content:after
-{
-    position: relative;
-    display: block;
-    z-index: -1;
-
-    color: #1A1A20;
-
-    top: calc(5px - var(--navigation_banner_height));
-    right: 0;
-    height: 20px;
-    width: calc(100%);
-    border-right: 15px solid transparent;
-    border-top: calc(var(--navigation_banner_height) + 3px) solid #1A1A20;
-    content: '';
-}
-*/
 
 
 #navigation_banner li:last-child .navigation_banner_content:hover:before
@@ -181,37 +145,7 @@ li:last-child .navigation_banner_content
     border-top: calc(var(--navigation_banner_height)) solid black;
     border-right: 15px solid transparent;
 
-    box-shadow: 0px 0px 5px #1A1A20 inset;
+    box-shadow: 0px 0px 5px #c2791c inset;
     background-clip: border-box;
-    background-image: radial-gradient(circle, forestgreen var(--inner_ring_radius), limegreen var(--outer_ring_radius), forestgreen 85%, black 125%);
+    background-image: radial-gradient(circle, seagreen var(--inner_ring_radius), mediumseagreen var(--outer_ring_radius), seagreen 85%, black 125%);
 }
-
-/*
-#navigation_banner li:last-child .navigation_banner_content:hover
-{
-    background: transparent;
-    //clip-path: polygon(0% 0%, 115% 0%, 100% 100%, 0% 100%);
-}
-*/
-
-/*
-#navigation_banner li:last-child .navigation_banner_content:hover:after
-{
-    position: relative;
-    display: block;
-    z-index: -1;
-
-    color: red;
-
-    left: 0px;
-    width: calc(100%);
-    height: 20px;
-    top: calc(5px - var(--navigation_banner_height));
-
-    filter: blur(3px);
-    clip-path: polygon(0% 0%, 115% 0%, 100% 100%, 0% 100%);
-
-    //border-top: calc(var(--navigation_banner_height)) solid red;
-    //border-right: 15px solid transparent;
-}
-*/

@@ -2,7 +2,10 @@
 
 :root
 {
-    --title_banner_font_size: min(50px, max(5vw, 20px));
+    --title_banner_font_size: min(40px, max(5vw, 20px));
+
+    --base_colour_one: #815622;
+    --base_colour_two: #3a2916;
 }
 
 
@@ -15,7 +18,7 @@
     min-width: 100%;
     padding: 8px 0;
 
-    background-color: #101013;
+    background-color: var(--base_colour_two);
     box-shadow: 0px 5px 20px 0px #000000;
 
     z-index: 20;
@@ -28,7 +31,7 @@
 
     padding: 10px 0;
 
-    background-color: #1A1A20;
+    background-color: var(--base_colour_one);
     box-shadow: 0 5px 20px 0 #000000;
 }
 
@@ -39,7 +42,7 @@
 
     margin: 0;
 
-    font-family: 'Agency FB', sans-serif;
+    font-family: 'Georgia', sans-serif;
     font-size: var(--title_banner_font_size);
 
     white-space: nowrap;
