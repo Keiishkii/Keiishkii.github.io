@@ -1,0 +1,24 @@
+.background-image-multiply-blend
+{
+    position: absolute;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    background-color: red;
+    background-size: cover;
+
+    mix-blend-mode: multiply;
+    opacity: 75%;
+}
+
+a .background-image-multiply-blend:hover
+{
+    opacity: 50%;
+}

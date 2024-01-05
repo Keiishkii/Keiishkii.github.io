@@ -143,7 +143,7 @@
     position: absolute;
     width: 350px;
     height: 185px;
-    background-image: linear-gradient(10deg, #050505, #101013);
+    background-image: linear-gradient(10deg, #050505, var(--UI_secondary_colour));
 
     z-index: 3;
     clip-path: polygon(
@@ -178,7 +178,7 @@
     position: absolute;
     width: 350px;
     height: 185px;
-    background-image: linear-gradient(10deg, #101013, #151520);
+    background-image: linear-gradient(10deg, var(--UI_secondary_colour), #151520);
 
     z-index: 3;
     clip-path: polygon(

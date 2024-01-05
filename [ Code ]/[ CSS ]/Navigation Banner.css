@@ -2,7 +2,6 @@
 {
     --navigation_banner_font_size: 36px;
     --navigation_banner_height: 44px;
-    --navigation_banner_last_element_width: 0px;
 
     --inner_ring_radius: 0;
     --outer_ring_radius: 0;
@@ -33,7 +32,7 @@
 
     padding: 8px 12px 8px 0px;
 
-    background-color: #101013;
+    background-color: var(--UI_secondary_colour);
     clip-path: polygon(0% 0%, 100% 0%, calc(100% - 26px) 100%, 0% 100%);
     filter: drop-shadow(0px 0px 10px rgba(0,0,0,1));
 }
@@ -62,9 +61,12 @@
 
 li .navigation_banner_content
 {
+    position: relative;
+    overflow: hidden;
+    
     padding: 5px 6px;
     margin-left: 8px;
-    background-color: #1A1A20;
+    background-color: var(--UI_primary_colour);
     height: calc(var(--navigation_banner_height) - 10px);
 
     text-decoration: none;
@@ -80,8 +82,11 @@ li:first-child .navigation_banner_content { margin-left: 0px; }
 
 .navigation_banner_content h1
 {
+    pointer-events: none;
+
+    position: relative;
     display: inline;
-    font-family: 'Agency FB', sans-serif;
+    font-family: var(--navigation_banner_font);
     font-size: var(--navigation_banner_font_size);
 
     white-space: nowrap;
@@ -95,9 +100,8 @@ li:first-child .navigation_banner_content { margin-left: 0px; }
 
 li .navigation_banner_content:hover
 {
-    background-color: mediumseagreen;
-    background-image: radial-gradient(circle, seagreen var(--inner_ring_radius), mediumseagreen var(--outer_ring_radius), seagreen 85%, black 125%);
-    box-shadow: 0px 0px 5px #1A1A20 inset;
+    background-image: radial-gradient(circle, var(--UI_hightlight_primary_colour) var(--inner_ring_radius), var(--UI_hightlight_secondary_colour) var(--outer_ring_radius), var(--UI_hightlight_primary_colour) 85%, black 125%);
+    box-shadow: 0px 0px 5px var(--UI_primary_colour) inset;
 }
 
 
@@ -110,22 +114,12 @@ li:last-child .navigation_banner_content
     pointer-events: bounding-box;
     padding: 5px 22px 5px 10px;
     margin-left: 8px;
-    background-color: #1A1A20;
+    background-color: var(--UI_primary_colour);
     background-position: -5px 0;
     height: calc(var(--navigation_banner_height) - 10px);
     clip-path: polygon(0% 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
 
     text-decoration: none;
-
-
-
-    //padding: 5px 20px 0px 0px;
-    //margin-left: 8px;
-    //background-color: red;
-    //height: calc(var(--navigation_banner_height) - 10px);
-    //clip-path: polygon(0% 0%, 115% 0%, 100% 100%, 0% 100%);
-
-    //text-decoration: none;
 }
 
 
@@ -145,7 +139,7 @@ li:last-child .navigation_banner_content
     border-top: calc(var(--navigation_banner_height)) solid black;
     border-right: 15px solid transparent;
 
-    box-shadow: 0px 0px 5px #1A1A20 inset;
+    box-shadow: 0px 0px 5px var(--UI_primary_colour) inset;
     background-clip: border-box;
     background-image: radial-gradient(circle, seagreen var(--inner_ring_radius), mediumseagreen var(--outer_ring_radius), seagreen 85%, black 125%);
 }

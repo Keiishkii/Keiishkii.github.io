@@ -1,0 +1,11 @@
+@import url('http://fonts.cdnfonts.com/css/agency-fb');
+
+:root
+{
+    /*#region [ UI Colours ]*/
+    --UI_primary_colour: #3f3e3e;
+    --UI_secondary_colour: #101013;
+    --UI_hightlight_primary_colour: seagreen;
+    --UI_hightlight_secondary_colour: mediumseagreen;
+    /*#endregion*/
+}

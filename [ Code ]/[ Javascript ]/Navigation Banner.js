@@ -59,6 +59,5 @@ const NavigationBanner =
 
         PageManager.root.style.setProperty('--navigation_banner_font_size', (scaledFontSize) + "px");
         PageManager.root.style.setProperty('--navigation_banner_height', (scaledHeight) + "px");
-        PageManager.root.style.setProperty('--navigation_banner_last_element_width', (scaledHeight) + "px");
     }
 }

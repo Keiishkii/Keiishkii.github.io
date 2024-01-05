@@ -207,8 +207,8 @@
 }
 
 
-#content_container .link_list a:hover { border-color: mediumseagreen; }
-#content_container .link_list a:hover:visited { border-color: mediumseagreen }
+#content_container .link_list a:hover { border-color: var(--UI_hightlight_secondary_colour); }
+#content_container .link_list a:hover:visited { border-color: var(--UI_hightlight_secondary_colour) }
 #content_container .link_list a:visited { color: whitesmoke }
 
 

@@ -1,0 +1,19 @@
+@import url('http://fonts.cdnfonts.com/css/agency-fb');
+
+:root
+{
+    /*#region [ Title Font ]*/
+    --page_title_font: 'Agency FB', sans-serif;
+    --page_title_font_size: min(50px, max(5vw, 20px));
+    /*#endregion*/
+
+    /*#region [ Navigation Elements Font ]*/
+    --navigation_banner_font: 'Agency FB', sans-serif;
+    /*#endregion*/
+
+    /*#region [ Content Fonts ]*/
+    --content_header_font:  'Agency FB', sans-serif;
+    --content_subheader_font:  'Agency FB', sans-serif;
+    --content_paragraph_font:  'Tahoma', sans-serif;
+    /*#endregion*/
+}
