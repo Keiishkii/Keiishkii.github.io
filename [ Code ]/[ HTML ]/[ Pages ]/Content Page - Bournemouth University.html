@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang = "en">
+<head>
+    <!--#region [ Page Meta ]  -->
+    <title>Projects: Charlie Lloyd-Buckingham | Keiishkii</title>
+    <link rel = "icon", href = "/%5B%20Data%20%5D/%5B%20Images%20%5D/%5B%20Icons%20%5D/Page%20Logo.png">
+    <meta name = "description", content = "A collection of Charlie Lloyd-Buckingham's, Keiishkii's, best work.", charset="UTF-8">
+    <!--#endregion [ Page Meta ] -->
+
+
+    <!--#region [ Fonts ]  -->
+    <link rel = "stylesheet", href = "/[ Data ]/[ Fonts ]/Agency FB.css">
+    <!--#endregion [ Fonts ] -->
+
+    <!--#region [ Data Stylesheets ] -->
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/[ Data ]/Fonts.css">
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/[ Data ]/Colours.css">
+    <!--#endregion [ Data Stylesheets ] -->
+
+    <!--#region [ Stylesheets ]  -->
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/[ General ]/Image Effects.css">
+    <link rel = "stylesheet", href = "/[ Code ]/[ Plugins ]/[ Prism ]/prism.css">
+
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/Background.css">
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/Title Banner.css">
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/Navigation Banner.css">
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/Link Banner.css">
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/Content Page.css">
+    <link rel = "stylesheet", href = "/[ Code ]/[ CSS ]/Fade.css">
+    <!--#endregion [ Stylesheets ] -->
+
+    <!--#region [ Scripts ]  -->
+    <script src = "/[ Code ]/[ Javascript ]/Page Manager.js"></script>
+    <script src = "/[ Code ]/[ Javascript ]/Include HTML.js"></script>
+    <script src = "/[ Code ]/[ Javascript ]/Background.js"></script>
+    <script src = "/[ Code ]/[ Javascript ]/Content.js"></script>
+    <script src = "/[ Code ]/[ Javascript ]/Navigation Banner.js"></script>
+    <script src = "/[ Code ]/[ Javascript ]/Page List.js"></script>
+    <script src = "/[ Code ]/[ Plugins ]/[ Prism ]/prism.js"></script>
+    <!--#endregion [ Scripts ] -->
+</head>
+<body>
+    <!--#region [ Default Layout ]  -->
+    <div html-include = "/[ Code ]/[ HTML ]/[ Include ]/Page Background.html"></div>
+    <div html-include = "/[ Code ]/[ HTML ]/[ Include ]/Title Banner.html"></div>
+    <div html-include = "/[ Code ]/[ HTML ]/[ Include ]/Navigation Bar.html"></div>
+    <div html-include = "/[ Code ]/[ HTML ]/[ Include ]/Footer Links Banner.html"></div>
+    <!--#endregion [ Default Layout ] -->
+
+    <!-- Page Content -->
+    <div id = "content_container_root"><div id = "content_container_center"><div id = "content_container">
+        <div id = "page_title"><h1>Bournemouth University - MINE Cluster:</h1></div>
+        <div class = "content"><div class = "page_content">
+            <p>
+                I began working with Bournemouth Universities MINE Cluster in early 2022, while finishing my degree in Game Software Engineering. I initially started as a
+                part-time research assistant, however eventually got a full-time research assistant contract after my graduation. Here I stayed working with the MINE
+                Cluster until December 2022 after completing my projects.
+                <br><br>
+                Though now unemployed by the lab, I have kept in contact and have taken part in lab related activities, such as the March 2023 Dorchester Science Center.
+            </p>
+
+            <p class = links_title>MINE Cluster Webpage:</p>
+            <ul class = "link_list">
+                <li><a class = "icon"  href = "https://www.bournemouth.ac.uk/research/projects/mine-multimodal-immersive-neuro-sensing-natural-neuro-behavioural-measurement">
+                    <div style = "background-image: url('/[ Data ]/[ Images ]/[ Logos ]/Bournemouth Logo.png');" ></div>
+                </a></li>
+            </ul>
+        </div></div>
+
+        <div class = "date_title"><h1>2022</h1></div>
+
+        <!-- Embodied N170 -->
+        <div class = "section_title"><h1>Embodied N170</h1></div>
+        <div class = "content"><div class = "page_content">
+            <p>
+                The Embodied N170 project explored the brain's response to human and human-like faces in VR (Virtual Reality). The experiments where designed to give
+                participants a sudden direct line of sight view of avatar faces, these avatars would appear as either human or a human-like statue, participants would
+                then need to interact with these avatars by walking towards them and delivering an envelope to their desk. Statues would appear
+                stationary with cracked skin. While human avatars would respond to the participant with basic behaviour: such as blinking; looking at the participant upon
+                them entering a room; and thanking them upon the participant delivering their letter, both audibly and visually using facial
+                motion capture animations.
+            </p>
+
+            <br><br>
+
+            <div class = double_photo>
+                <img src = '/[ Data ]/[ Images ]/[ Project Images ]/[ Embodied ]/Desk View - Real Avatar.PNG'>
+                <img src = '/[ Data ]/[ Images ]/[ Project Images ]/[ Embodied ]/Desk View - Statue Avatar.PNG'>
+            </div>
+            <div class = caption><p class = "caption_text">Left: human avatar | Right: human-like statue.</p></div>
+
+            <br><br>
+
+            <div class = "section_subtitle"><h1>Session Flow</h1></div>
+            <p>
+                The experiment was designed to be split into a series of blocks and trials. For this I adopted the use of a state-machine,
+                designed to accommodate the flow of the experiment so that each states logic could be processed correctly before moving to the next state.
+                This would include loading and destroying entities on entering and exit trials, or setting block behaviour on starting a new block.
+                Per trial logic was also controlled within this state machine, as a way of awaiting player action.
+            </p>
+
+            <br><br>
+
+            <div class = single_photo>
+                <img src = '/[ Data ]/[ Images ]/[ Project Images ]/[ Embodied ]/Flowchart.PNG'>
+            </div>
+            <div class = caption><p class = "caption_text">Flow Diagram of the state-machine throughout the experiments runtime.</p></div>
+
+            <br><br>
+
+            <p>
+                The state-machines was written as a component, <code class="language-csharp">SessionStateMachine</code>, for a MonoBehaviour.
+                Each of its states where a children of the class <code class="language-csharp">SessionStateInterface</code>, and stored as public
+                properties within the <code class="language-csharp">SessionStateMachine</code>.
+            </p>
+            <div class = "code_block">
+                <pre>
+<!--             --><code class="language-csharp line-numbers">
+<!--                 -->[Serializable]
+<!--                 -->public abstract class SessionStateInterface
+<!--                 -->{
+<!--                 -->    public virtual void OnStateInitialise(in SessionStateMachine sessionStateMachine) { };
+<!--                 -->    public virtual void OnStateEnter(in SessionStateMachine sessionStateMachine) { }
+<!--                 -->    public virtual void OnStateExit(in SessionStateMachine sessionStateMachine) { }
+<!--                 -->
+<!--                 -->    public virtual void Update(in SessionStateMachine sessionStateMachine) { }
+<!--                 -->    public virtual void FixedUpdate(in SessionStateMachine sessionStateMachine) { }
+<!--                 -->    public virtual void LateUpdate(in SessionStateMachine sessionStateMachine) { }
+<!--                 -->
+<!--                 -->    public virtual void OnDrawGizmos(in SessionStateMachine sessionStateMachine) { }
+<!--                 -->}
+<!--             --></code><!--
+              --></pre>
+            </div>
+            <div class = caption><p class = "caption_text">Interface class for state-machine logic states.</p></div>
+            <p>
+                On awake, each state was instantiated using their own implementation of <code class="language-csharp">OnStateInitialise()</code>, used to populate each states initial parameters set in the
+                experiment's scriptable object. After which the state-machines active state would then be updated to the <code class="language-csharp">SessionStart</code> state.
+                Here, all state flow was then controlled within these states, whereas the active state would process its necessary logic and then await a condition
+                for it to then reset the state-machines reference to an active state to something else, this would clean up any logic needed by running calling the now ended states
+                <code class="language-csharp">OnStateExit()</code> function, before calling the new states <code class="language-csharp">OnStateEnter()</code>.
+            </p>
+
+            <div class = "section_subtitle"><h1>Data and Networking</h1></div>
+            <p>
+                The experiment was designed to run across 4 systems: a host PC, a desktop used to run the experiment application;
+                the Meta Quest 2, in which the participant would use to see and interact within this application; an Ant Neuro, for portable EEG recording; and lastly the
+                data PC, a secondary desktop in which data from both the VR headset and Ant Neuro would be received and recorded.
+                <br><br>
+                The way this system worked was through the implementation of LSL (Lab Streaming Layer). Recording on the data PC was done via Ant Neuro's EEGO Lab, which would automatically
+                use LSL to process any LSL streams being sent across on the local network. This in conjunction with this, the mobile EEG kit from Ant Neuro would send the data recorded from its
+                many sensors over the network. This however was only useful if we knew what the user was currently experiencing at given times, as such LSL was then integrated into the Unity
+                experiment for signals to be sent during run-time. After delays where accounted for (by comparing activation signals to large stimulus's, such as a sudden bright light), we would
+                now be able to compare data with reasonably high accuracy to what the user was experiencing.
+            </p>
+
+            <div class = "section_subtitle"><h1>Animation</h1></div>
+            <p>
+                To simulate the effect of viewing a realistic human face in the VR, we needed to have the avatars not just look realistic but behave like a real human too.
+                This was not a project to specifically enforce a life like interaction to the user, in which a vastly more complex system would be required, but instead
+                to trick the user just enough to process what they were as a real face belonging to a person and not just something that has facial like features.
+                Whereas the purpose of the statue like characters, witch cracked skin and no animations where intended to be processed as something non-human,
+                so that we could then compare.
+                <br><br>
+                The characters used in this study where from Microsoft's Rocketbox Avatar Library, this is due to the pre-rigged body and facial blendshape rigging
+                allowing for the ease of high fidelity animations to be applied. These facial animations where then recorded via the Unity Face Capture application,
+                and then applied inside Unity through scripts.
+            </p>
+
+            <hr>
+            <p>
+                The paper is yet to be released, once available it will be linked below:
+            </p>
+
+            <p class = links_title>Project Links:</p>
+            <ul class = "link_list">
+                <li><a class = "icon"  href = "https://github.com/Keiishkii/EmBodied_N170">
+                    <div style = "background-image: url('/[ Data ]/[ Images ]/[ Logos ]/GitHub.png');" ></div>
+                </a></li>
+            </ul>
+        </div></div>
+
+        <!-- Re-enacting Football Matches in VR using Virtual Agents’ Realistic Behaviours -->
+        <div class = "section_title"><h1>Re-enacting Football Matches in VR using Virtual Agents’ Realistic Behaviours</h1></div>
+        <div class = "content"><div class = "page_content">
+            <p>
+                This paper involved the implementation and training of a pre-developed motion matching PFNN (Phase-Function Neural Network), for use in re-enacting football matches from the tracking files
+                recorded during matches. Using this tracking data and some custom tagging of additional data from recordings we were able to create the trajectories needed for the
+                motion matching to work. We would then save each player's bone data for the purposes of replaying and scrolling across the timeline of the game in a virtual environment.
+            </p>
+
+            <hr>
+            <p>
+                Unfortunately due to this project being a collaboration with a third-party company or purpose of commercial use, links to the development repository cannot be issued.
+            </p>
+
+            <p class = links_title>Project Links:</p>
+            <ul class = "link_list">
+                <li><a class = "icon"  href = "https://www.researchgate.net/publication/367564952_Re-enacting_Football_Matches_in_VR_using_Virtual_Agents'_Realistic_Behaviours">
+                    <div style = "background-image: url('/[ Data ]/[ Images ]/[ Logos ]/Research Gate.png');" ></div>
+                </a></li>
+            </ul>
+        </div></div>
+
+        </div>
+        <div class = "content_fade_overlay"><div class = "Fade"></div></div>
+    </div></div></div>
+</body>
+</html>

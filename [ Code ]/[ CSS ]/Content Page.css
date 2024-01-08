@@ -272,3 +272,157 @@
     color: whitesmoke;
 }
 
+#content_container .section_subtitle h1
+{
+    text-align: left;
+
+    background: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            color-stop(1, rgba(0,0,0,0.0)), /* Top */
+            color-stop(0.75, rgba(0,0,0,0.5)), /* Bottom */
+            color-stop(0, rgba(0,0,0,0.5)) /* Bottom */
+    );
+
+    border-image: linear-gradient(90deg, #115448, #00000000) 1;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 2px;
+    border-right: 0px;
+    border-style: solid;
+
+    font-size: 20px;
+    margin: 15px 0px 15px 0px;
+    width: fit-content;
+    padding: 7px 100px 7px 20px;
+    text-shadow: 4px 4px black;
+
+    font-family: 'Agency FB', sans-serif;
+    color: whitesmoke;
+}
+
+.code_block
+{
+    margin: 30px auto 10px auto;
+    box-shadow: 0px 0 20px black;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #273a31;
+    width: 67%;
+}
+
+
+
+.code_block pre
+{
+    -webkit-box-shadow:inset 0 0 20px 3px #050505;
+    box-shadow:inset 0 0 20px 3px #050505;
+
+    margin: 0;
+    padding: 20px;
+    font-size: 16px;
+
+    height: 300px;
+}
+
+#content_container code:not(pre code)
+{
+    background-color: #00000066;
+    padding: 1px 2px 1px 4px;
+}
+
+.single_photo
+{
+    margin: auto;
+    width: 67%;
+
+    padding: 0;
+}
+
+.single_photo img
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    border-color: black;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+
+    box-shadow: 0px 0 20px black;
+}
+
+
+.single_photo img:after
+{
+    content: " ";
+
+    width: 100%;
+    height: 100%;
+
+    color: red;
+}
+
+.double_photo
+{
+    font-size: 0;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+}
+
+.double_photo img
+{
+    width: 40%;
+    height: 100%;
+    display: inline-block;
+
+    border-color: black;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    margin: 0 1% 0 1%;
+    padding: 0;
+
+    box-shadow: 0px 0 20px black;
+}
+
+.caption
+{
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#content_container .caption .caption_text
+{
+    font-size: 12px;
+    color: #a2c0b5;
+}
+
+
+.video_base
+{
+    margin: 20px auto 20px auto;
+    width: 67%;
+
+    padding: 0;
+}
+.video_wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+}
+
+iframe
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+

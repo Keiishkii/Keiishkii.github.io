@@ -3,7 +3,7 @@
 <head>
     <!--#region [ Page Meta ]  -->
     <title>Projects: Charlie Lloyd-Buckingham | Keiishkii</title>
-    <link rel = "icon", href = "/[ Data ]/[ Images ]/[ Logos ]/Page Logo.png">
+    <link rel = "icon", href = "/%5B%20Data%20%5D/%5B%20Images%20%5D/%5B%20Icons%20%5D/Page%20Logo.png">
     <meta name = "description", content = "A collection of Charlie Lloyd-Buckingham's, Keiishkii's, best work.", charset="UTF-8">
     <!--#endregion [ Page Meta ] -->
 
@@ -48,136 +48,152 @@
     <!-- Page Content -->
     <div id = "content_container_root"><div id = "content_container_center"><div id = "content_container">
         <div id = "page_title"><h1>INCISIV:</h1></div>
-        <div class = "content">
-            <div class = "page_content">
-                <p>
-                    I started working at INCISIV in June 2020 as a game programmer on the development of their Unity based VR products.
-                    Initially starting with remote work, I then quickly moved to Belfast to work in office.
+        <div class = "content"><div class = "page_content">
+            <p>
+                I started working at INCISIV in June 2020 as a game programmer on the development of their Unity based VR products.
+                Initially starting with remote work, I then quickly moved to Belfast to work in office.
 
-                    In late 2021 I then returned to England to finish my degree, and after which, in 2022 was then given the role
-                    of lead developer in anticipation of the development and release of CleanSheet for the Meta Quest 3's announcement.
-                    During this I returned to working remotely from England, though took regular trips to Belfast when my presence was needed.
-                    <br><br>
-                    Throughout my time working at INCISIV, I had worked on a multitude of different and varying projects,
-                    each having their own challenges:
+                In late 2021 I then returned to England to finish my degree, and after which, in 2022 was then given the role
+                of lead developer in anticipation of the development and release of CleanSheet for the Meta Quest 3's announcement.
+                During this I returned to working remotely from England, though took regular trips to Belfast when my presence was needed.
+                <br><br>
+                Throughout my time working at INCISIV, I had worked on a multitude of different and varying projects,
+                each having their own challenges:
 
-                    requiring the development of a full-body VR IK;
-                    integrating anti-piracy and in-app purchases, with the Meta backend;
-                    implementing gameplay interactions systems and game flow logic,
-                    including projectile physics, player interaction, and animation;
-                    multiplayer networking;
-                    asset code for custom shader materials and procedural mesh generation;
-                    and many editor tools for set piece design, development and playback in game.
-                </p>
+                requiring the development of a full-body VR IK;
+                integrating anti-piracy and in-app purchases, with the Meta backend;
+                implementing gameplay interactions systems and game flow logic,
+                including projectile physics, player interaction, and animation;
+                multiplayer networking;
+                asset code for custom shader materials and procedural mesh generation;
+                and many editor tools for set piece design, development and playback in game.
+            </p>
 
-                <p class = links_title>INCISIV Homepage:</p>
-                <ul class = "link_list">
-                    <li><a class = "icon"  href = "https://www.incisiv.tech">
-                        <div style = "background-image: url('/[ Data ]/[ Images ]/[ Icons ]/INCISIV.png');" ></div>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
+            <p class = links_title>INCISIV Homepage:</p>
+            <ul class = "link_list">
+                <li><a class = "icon"  href = "https://www.incisiv.tech">
+                    <div style = "background-image: url('/[ Data ]/[ Images ]/[ Logos ]/INCISIV.png');" ></div>
+                </a></li>
+            </ul>
+        </div></div>
 
         <div class = "date_title"><h1>2022</h1></div>
 
         <!-- CleanSheet VR -->
         <div class = "section_title"><h1>CleanSheet VR</h1></div>
-        <div class = "content">
-            <div class = "page_content">
-                <p>
-                    CleanSheet VR was a VR Football sports simulator and training tool for emulating the experiences of a football goalkeeper.
-                    <br><br>
-                    Their where four ways of playing CleanSheet: Quickfire, a game-mode of reacting and blocking quickly moving balls from portals;
-                    Set Piece, in which a more realistic environment would be achieved by using large repository of motion capture animation of
-                    a pre-generated scuffle between the players and opposing teams, culminating with a final shot for them to defend against;
-                    Distribution, a multiplayer game where players from around the world would fight to win rounds by securing points from throwing balls
-                    into regions around them; and finally Goalie Wars, another vs game where players would take turns in defending and attacking a goal
-                    using catapults to launch balls towards there enemy.
-                </p>
-                <hr>
-                <p>
-                    Though I worked on each game mode, Set Piece and Goalie Wars were where my work bore the most influence:
-                </p>
-
-                <h1>Set Piece:</h1>
-                <p>
-                    The way Set Piece is played it was required that each routine that appeared was pre-designed, this was done
-                    inside a separate program, one I had originally developed when working on CleanSheet Pro (however, for the release of CleanSheet VR additional improvements and alterations where required).
-                    This included the development of a state based fielder animation and physics system for controlling the npc-players and syncing there animations and positions
-                    perfectly for inter-player and ball interactions. This system was then ported and updated for supporting playback within the released game, with the required logic
-                    for adapting to player inputs and continuous playback of new routines.
-                </p>
-
-                <h1>Goalie Wars:</h1>
-                <p>
-                    Goalie Wars was another of the game modes in which the majority of my work fell, this included the networking between players, and the interaction and physics
-                    used for each of the players catapults. I also worked on the code side of the catapults animation and its visual effects, specifically the real-time procedural
-                    mesh used for its trajectory.
-                </p>
-                <p>
-                    Goalie Wars was another of the game modes in which the majority of my work fell, this included the networking between players, and the interaction and physics
-                    used for each of the players catapults. I also worked on the code side of the catapults animation and its visual effects, specifically the real-time procedural
-                    mesh used for its trajectory.
-                </p>
-
-                <hr>
-                <p>
-                    Another large part of my work on this game was the anti-piracy and IAP logic. With the integration of Meta's SKU's allowing us to sell individual items
-                    and bundles within an in-game store. The cosmetic system was designed to be easily expandable through Unity ScriptableObjects and prefabs.
-                </p>
-
-
-                <p class = links_title>Product Links:</p>
-                <ul class = "link_list">
-                    <li><a class = "icon"  href = "https://www.incisiv.tech/cleansheet">
-                        <div style = "background-image: url('/[ Data ]/[ Images ]/[ Icons ]/INCISIV.png');" ></div>
-                    </a></li>
-                    <li><a class = "icon"  href = "https://sidequestvr.com/app/6132/cleansheet">
-                        <div style = "background-image: url('/[ Data ]/[ Images ]/[ Icons ]/SideQuestIcon.png');" ></div>
-                    </a></li>
-                    <li><a class = "icon"  href = "https://www.meta.com/en-gb/experiences/5005632286166834/">
-                        <div style = "background-image: url('/[ Data ]/[ Images ]/[ Icons ]/Meta.png');" ></div>
-                    </a></li>
-                </ul>
+        <div class = "content"><div class = "page_content">
+            <hr>
+            <div class = video_base>
+                <div class = video_wrapper>
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/qTPPjXdeBdE" title="CleanSheet VR  | Trailer | Meta Quest 2 + 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
             </div>
-        </div>
+            <hr>
+
+            <p>
+                CleanSheet VR was a VR Football sports simulator and training tool for emulating the experiences of a football goalkeeper.
+                <br><br>
+                Their where four ways of playing CleanSheet: Quickfire, a game-mode of reacting and blocking quickly moving balls from portals;
+                Set Piece, in which a more realistic environment would be achieved by using large repository of motion capture animation of
+                a pre-generated scuffle between the players and opposing teams, culminating with a final shot for them to defend against;
+                Distribution, a multiplayer game where players from around the world would fight to win rounds by securing points from throwing balls
+                into regions around them; and finally Goalie Wars, another vs game where players would take turns in defending and attacking a goal
+                using catapults to launch balls towards there enemy.
+            </p>
+            <hr>
+            <p>
+                Though I worked on each game mode, Set Piece and Goalie Wars were where my work bore the most influence:
+            </p>
+
+            <h1>Set Piece:</h1>
+            <p>
+                The way Set Piece is played it was required that each routine that appeared was pre-designed, this was done
+                inside a separate program, one I had originally developed when working on CleanSheet Pro (however, for the release of CleanSheet VR additional improvements and alterations where required).
+                This included the development of a state based fielder animation and physics system for controlling the npc-players and syncing there animations and positions
+                perfectly for inter-player and ball interactions. This system was then ported and updated for supporting playback within the released game, with the required logic
+                for adapting to player inputs and continuous playback of new routines.
+            </p>
+
+            <h1>Goalie Wars:</h1>
+            <p>
+                Goalie Wars was another of the game modes in which the majority of my work fell, this included the networking between players, and the interaction and physics
+                used for each of the players catapults. I also worked on the code side of the catapults animation and its visual effects, specifically the real-time procedural
+                mesh used for its trajectory.
+            </p>
+            <p>
+                Goalie Wars was another of the game modes in which the majority of my work fell, this included the networking between players, and the interaction and physics
+                used for each of the players catapults. I also worked on the code side of the catapults animation and its visual effects, specifically the real-time procedural
+                mesh used for its trajectory.
+            </p>
+
+            <hr>
+            <p>
+                Another large part of my work on this game was the anti-piracy and IAP logic. With the integration of Meta's SKU's allowing us to sell individual items
+                and bundles within an in-game store. The cosmetic system was designed to be easily expandable through Unity ScriptableObjects and prefabs.
+            </p>
+
+
+            <p class = links_title>Product Links:</p>
+            <ul class = "link_list">
+                <li><a class = "icon"  href = "https://www.incisiv.tech/cleansheet">
+                    <div style = "background-image: url('/[ Data ]/[ Images ]/[ Logos ]/INCISIV.png');" ></div>
+                </a></li>
+                <li><a class = "icon"  href = "https://sidequestvr.com/app/6132/cleansheet">
+                    <div style = "background-image: url('/[ Data ]/[ Images ]/[ Logos ]/SideQuestIcon.png');" ></div>
+                </a></li>
+                <li><a class = "icon"  href = "https://www.meta.com/en-gb/experiences/5005632286166834/">
+                    <div style = "background-image: url('/[ Data ]/[ Images ]/[ Logos ]/Meta.png');" ></div>
+                </a></li>
+            </ul>
+        </div></div>
 
         <!-- MOViR -->
         <div class = "section_title"><h1>MOViR</h1></div>
-        <div class = "content">
-            <div class = "page_content">
-                <p>
-                    MOViR was a VR based analytics tool used for profiling and testing the healthiness users.
-                    Specifically it focused on two groups: individuals involved in clinical rehabilitation; and professional Rugby players,
-                    with the goal of helping understand and spot instances of concussions.
-                    <br><br>
-                    The program consisted of several mini-games, where the users input was recorded in realtime and analysed to be displayed on a
-                    front end dashboard. These mini-games focused on several aspects of the users abilities such as their manual dexterity, memory,
-                    and cognitive motor skills.
+        <div class = "content"><div class = "page_content">
+            <p>
+                MOViR was a VR based analytics tool used for profiling and testing the healthiness users.
+                Specifically it focused on two groups: individuals involved in clinical rehabilitation; and professional Rugby players,
+                with the goal of helping understand and spot instances of concussions.
+                <br><br>
+                The program consisted of several mini-games, where the users input was recorded in realtime and analysed to be displayed on a
+                front end dashboard. These mini-games focused on several aspects of the users abilities such as their manual dexterity, memory,
+                and cognitive motor skills.
 
-                    My worked involved developing these game modes and designing them in a way that the end users or could be altered through
-                </p>
+                My worked involved developing these game modes and designing them in a way that the end users or could be altered through
+            </p>
 
-                <p class = links_title>Product Links:</p>
-                <ul class = "link_list">
-                    <li><a class = "icon"  href = "https://www.incisiv.tech/movir-options">
-                        <div style = "background-image: url('/[ Data ]/[ Images ]/[ Icons ]/INCISIV.png');" ></div>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
+            <p class = links_title>Product Links:</p>
+            <ul class = "link_list">
+                <li><a class = "icon"  href = "https://www.incisiv.tech/movir-options">
+                    <div style = "background-image: url('/[ Data ]/[ Images ]/[ Logos ]/INCISIV.png');" ></div>
+                </a></li>
+            </ul>
+        </div></div>
 
         <div class = "date_title"><h1>2020</h1></div>
 
         <!-- CleanSheet Pro -->
         <div class = "section_title"><h1>CleanSheet Pro</h1></div>
-
+        <div class = "content"><div class = "page_content">
+            <p>
+                Section incomplete:
+            </p>
+        </div></div>
         <!-- VR Hockey -->
         <div class = "section_title"><h1>Prototype - VR Hockey</h1></div>
+        <div class = "content"><div class = "page_content">
+            <p>
+                Section incomplete:
+            </p>
+        </div></div>
 
         <!-- VR Cricket -->
         <div class = "section_title"><h1>Prototype - VR Cricket</h1></div>
+        <div class = "content"><div class = "page_content">
+            <p>
+                Section incomplete:
+            </p>
+        </div></div>
         </div>
         <div class = "content_fade_overlay"><div class = "Fade"></div></div>
     </div></div></div>
