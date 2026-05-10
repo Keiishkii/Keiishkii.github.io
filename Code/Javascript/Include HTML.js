@@ -1,6 +1,6 @@
 document.addEventListener('pre-initialisation', function()
 {
-    //IncludeHTML.IncludeHTML();
+    IncludeHTML.IncludeHTML();
 }, false);
 
 const IncludeHTML =
