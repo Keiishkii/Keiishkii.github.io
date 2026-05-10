@@ -1,0 +1,42 @@
+@import url('https://fonts.cdnfonts.com/css/agency-fb');
+
+:root
+{
+    /*#region [ UI Colours ]*/
+    --UI_primary_colour: #3f3e3e;
+    --UI_secondary_colour: #101013;
+    --UI_hightlight_primary_colour: seagreen;
+    --UI_hightlight_secondary_colour: mediumseagreen;
+    /*#endregion*/
+
+    /*#region [ Title Font ]*/
+    --page_title_colour: white;
+    --page_title_font: 'Antonio', sans-serif;
+    --page_title_font_size: min(50px, max(5vw, 20px));
+    /*#endregion*/
+
+    /*#region [ Navigation Elements Font ]*/
+    --navigation_banner_font: 'Antonio', sans-serif;
+    --navigation_banner_font_size: 1px;
+    --navigation_banner_height: 44px;
+    /*#endregion*/
+
+    /*#region [ Content Fonts ]*/
+    --content_header_font:  'Antonio', sans-serif;
+    --content_header_colour: #486a87;
+
+    --content_subheader_font:  'Antonio', sans-serif;
+    --content_subheader_colour: #e1e2e3;
+
+    --content_subsubheader_font:  'Antonio', sans-serif;
+    --content_subsubheader_colour: #d3dce3;
+
+    --content_paragraph_font:  'Tahoma', sans-serif;
+    --content_paragraph_colour: #c0cad1;
+    --content_paragraph_colour_strong: #e1eaf0;
+
+    --content_list_font:  'Tahoma', sans-serif;
+    --content_list_colour: #9bacba;
+    /*#endregion*/
+
+}

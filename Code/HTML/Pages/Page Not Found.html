@@ -2,9 +2,9 @@
 <html lang = "en">
 <head>
     <!--#region [ Page Meta ]  -->
-    <title>Charlie Lloyd-Buckingham | Keiishkii</title>
+    <title>Projects: Charlie Lloyd-Buckingham | Keiishkii</title>
     <link rel = "icon", href = "/Data/Images/Icons/Page Logo.png">
-    <meta name = "description", content = "Web portfolio for Charlie Lloyd-Buckingham.", charset="UTF-8">
+    <meta name = "description", content = "A collection of Charlie Lloyd-Buckingham's work.", charset="UTF-8">
     <!--#endregion [ Page Meta ] -->
 
 
@@ -23,6 +23,8 @@
     <link rel = "stylesheet", href = "/Code/CSS/Title Banner.css">
     <link rel = "stylesheet", href = "/Code/CSS/Navigation Banner.css">
     <link rel = "stylesheet", href = "/Code/CSS/Link Banner.css">
+    <link rel = "stylesheet", href = "/Code/CSS/Content Page.css">
+    <link rel = "stylesheet", href = "/Code/CSS/Fade.css">
     <!--#endregion [ Stylesheets ] -->
 
     <!--#region [ Scripts ]  -->
@@ -31,6 +33,7 @@
     <script src = "/Code/Javascript/Background.js"></script>
     <script src = "/Code/Javascript/Content.js"></script>
     <script src = "/Code/Javascript/Navigation Banner.js"></script>
+    <script src = "/Code/Javascript/Page List.js"></script>
     <!--#endregion [ Scripts ] -->
 </head>
 <body>
@@ -40,5 +43,24 @@
     <div html-include = "/Code/HTML/Include/Navigation Bar.html"></div>
     <div html-include = "/Code/HTML/Include/Footer Links Banner.html"></div>
     <!--#endregion [ Default Layout ] -->
+
+    <!-- Page Content -->
+    <div id = "content_container_root">
+            <div id = "content_container_center">
+                <div id = "content_container" style="width: 400px; left: 50%; transform: translateX(-50%)">
+                    <!-- Title -->
+                    <div id = "page_title"><h1>Page Not Found</h1></div>
+
+                    <!-- Content -->
+                    <div class = "content">
+                        <div class = "page_content">
+                            <p style="text-align: center">
+                                The page selected is incomplete.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

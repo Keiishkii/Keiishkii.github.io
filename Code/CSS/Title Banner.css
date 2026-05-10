@@ -1,0 +1,40 @@
+.title_banner
+{
+    position: fixed;
+
+    top: 0;
+
+    min-width: 100%;
+    padding: 8px 0;
+
+    background-color: var(--UI_secondary_colour);
+    box-shadow: 0px 5px 20px 0px #000000;
+
+    z-index: 20;
+}
+
+#title_banner_foreground
+{
+    position: relative;
+    min-width: 100%;
+
+    padding: 10px 0;
+
+    background-color: var(--UI_primary_colour);
+    box-shadow: 0 5px 20px 0 #000000;
+}
+
+#title_banner_foreground h1
+{
+    position: relative;
+
+    text-align: center;
+    text-shadow: 0.25vw 0.25vw #000;
+    margin: 0;
+
+    color: var(--page_title_colour);
+    font-family: var(--page_title_font);
+    font-size: var(--page_title_font_size);
+
+    white-space: nowrap;
+}
