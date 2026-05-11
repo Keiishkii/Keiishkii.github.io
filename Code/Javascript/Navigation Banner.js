@@ -9,6 +9,29 @@ document.addEventListener('update', () =>
     NavigationBanner.Update()
 }, false);
 
+const NavigationGroups = {
+    Home: [
+        { label: "Go to Home", action: () => window.location.href = "/index.html" }
+    ],
+    About: [
+        { label: "About Me", action: () => window.location.href = "/Code/HTML/Pages/About Me.html" }
+    ],
+    Galleries: [
+        { label: "Character Art Work", action: () => console.log("Character Art clicked") },
+        { label: "3D Renders", action: () => console.log("3D Renders clicked") },
+    ],
+    Work: [
+        { label: "INCISIV", action: () => console.log("INCISIV clicked") },
+        { label: "Bournemouth University", action: () => console.log("Bournemouth University clicked") },
+        { label: "Brighton MET College", action: () => console.log("Brighton MET College clicked") },
+    ],
+    Learning: [
+        { label: "Unity", action: () => console.log("Unity clicked") },
+        { label: "C# Tutorials", action: () => console.log("C# clicked") },
+        { label: "Maths Resources", action: () => console.log("Math clicked") }
+    ]
+};
+
 const NavigationBanner =
 {
     titleBanner: { },
@@ -19,6 +42,7 @@ const NavigationBanner =
 
     minFontSize: 16,
     minHeightSize: 25,
+
 
 
     OnPageLoad: function OnPageLoad()
@@ -61,8 +85,35 @@ const NavigationBanner =
         PageManager.root.style.setProperty('--navigation_banner_height', (scaledHeight) + "px");
     },
 
-    OnLearningResourcesPressed: function OnLearningResourcesPressed()
+    OnNavigationGroupPressed: function OnNavigationGroupPressed(navigationGroupKey, buttonElement)
     {
-        window.open("/HTML/Pages/About%20Me.html");
+        console.log("Navigation Group Pressed: " + navigationGroupKey);
+
+        const navigationGroup = NavigationGroups[navigationGroupKey];
+        const dropdown = document.getElementById("dropdown");
+
+        if (!navigationGroup) {
+            console.warn("No menu found for key:", navigationGroup);
+            return;
+        }
+
+        // Clear old content
+        dropdown.innerHTML = "";
+
+        // Populate new content
+        navigationGroup.forEach(item => {
+            const button = document.createElement("button");
+            button.textContent = item.label;
+            button.onclick = item.action;
+            dropdown.appendChild(button);
+        });
+
+        // Show dropdown (you can style this however you want)
+        const rect = buttonElement.getBoundingClientRect();
+
+        dropdown.style.position = "fixed"; // keep it fixed
+        dropdown.style.left = rect.left + "px";
+        dropdown.style.top = rect.bottom + "px";
+        dropdown.style.display = "block";    // --- Positioning logic ---
     }
 }

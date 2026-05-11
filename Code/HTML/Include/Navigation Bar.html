@@ -1,58 +1,56 @@
 <!-- Navigation Banner -->
 <div id = "navigation_banner_container">
-  <div id = "navigation_banner">
-    <div class = "navigation_banner_content_background">
-      <ul>
-        <li>
-          <a href = "/index.html">
-            <div class = "navigation_banner_content">
-              <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
-              <h1>Home</h1>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href = "/Code/HTML/Pages/About Me.html">
-            <div class = "navigation_banner_content">
-              <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
-              <h1>About</h1>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="/Code/HTML/Pages/Page Navigation Group - Employment History.html">
-            <div class = "navigation_banner_content">
-              <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
-              <h1>Work</h1>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="/Code/HTML/Pages/Page Navigation Group - Projects.html">
-            <div class = "navigation_banner_content">
-              <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
-              <h1>Projects</h1>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="/Code/HTML/Pages/Page Navigation Group - Galleries.html">
-            <div class = "navigation_banner_content">
-              <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
-              <h1>Galleries</h1>
-            </div>
-          </a>
-        </li>
-        <li>
-          <button onclick = "NavigationBanner.OnLearningResourcesPressed()">
-            <div class = "navigation_banner_content">
-              <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
-              <h1>Learning Resources</h1>
-            </div>
-          </button>
-        </li>
-      </ul>
-      <div class = "navigation_banner_edge"></div>
-    </div>
-  </div>
+<div id = "navigation_banner">
+<div class = "navigation_banner_content_background">
+  <ul>
+    <li>
+      <button onclick = "NavigationBanner.OnNavigationGroupPressed('Home', this)">
+        <div class = "navigation_banner_content">
+          <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
+          <h1>Home</h1>
+        </div>
+      </button>
+    </li>
+    <li>
+      <button onclick = "NavigationBanner.OnNavigationGroupPressed('About', this)">
+        <div class = "navigation_banner_content">
+          <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
+          <h1>About</h1>
+        </div>
+      </button>
+    </li>
+    <li>
+      <button onclick = "NavigationBanner.OnNavigationGroupPressed('Work', this)">
+        <div class = "navigation_banner_content">
+          <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
+          <h1>Work</h1>
+        </div>
+      </button>
+    </li>
+    <li>
+      <button onclick = "NavigationBanner.OnNavigationGroupPressed('Galleries', this)">
+        <div class = "navigation_banner_content">
+          <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
+          <h1>Galleries</h1>
+        </div>
+      </button>
+    </li>
+    <li>
+      <button onclick = "NavigationBanner.OnNavigationGroupPressed('Learning', this)">
+        <div class = "navigation_banner_content">
+          <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
+          <h1>Learning Resources</h1>
+        </div>
+      </button>
+    </li>
+  </ul>
+  <div class = "navigation_banner_edge"></div>
+</div>
+</div>
+</div>
+
+<div id="dropdown" class="dropdown">
+  <p>Option 1</p>
+  <p>Option 2</p>
+  <p>Option 3</p>
 </div>

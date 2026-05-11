@@ -155,3 +155,11 @@ li:last-child .navigation_banner_content
     background-clip: border-box;
     background-image: radial-gradient(circle, seagreen var(--inner_ring_radius), mediumseagreen var(--outer_ring_radius), seagreen 85%, black 125%);
 }
+
+.dropdown
+{
+    position: fixed;
+    display: none;
+    z-index: 100000;
+    background-color: red;
+}
