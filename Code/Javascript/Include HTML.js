@@ -1,8 +1,3 @@
-document.addEventListener('pre-initialisation', function()
-{
-    IncludeHTML.IncludeHTML();
-}, false);
-
 const IncludeHTML =
 {
     Complete: true,

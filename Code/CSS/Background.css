@@ -21,7 +21,7 @@ body
     height: 100%;
     width: 100%;
 
-    z-index: -10;
+    z-index: var(--background_z-index);
 }
 
 #background_image
@@ -37,7 +37,7 @@ body
     height: 100%;
     width: 100%;
 
-    z-index: -9;
+    z-index: calc(var(--background_z-index) + 1);
 }
 
 #shadow_image

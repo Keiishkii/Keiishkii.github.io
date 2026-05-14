@@ -4,7 +4,7 @@
 <div class = "navigation_banner_content_background">
   <ul>
     <li>
-      <button onclick = "NavigationBanner.OnNavigationGroupPressed('Home', this)">
+      <button class="navigation_button_class" data-group="Home">
         <div class = "navigation_banner_content">
           <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
           <h1>Home</h1>
@@ -12,7 +12,7 @@
       </button>
     </li>
     <li>
-      <button onclick = "NavigationBanner.OnNavigationGroupPressed('About', this)">
+      <button class="navigation_button_class" data-group="About">
         <div class = "navigation_banner_content">
           <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
           <h1>About</h1>
@@ -20,7 +20,7 @@
       </button>
     </li>
     <li>
-      <button onclick = "NavigationBanner.OnNavigationGroupPressed('Work', this)">
+      <button class="navigation_button_class" data-group="Work">
         <div class = "navigation_banner_content">
           <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
           <h1>Work</h1>
@@ -28,7 +28,7 @@
       </button>
     </li>
     <li>
-      <button onclick = "NavigationBanner.OnNavigationGroupPressed('Galleries', this)">
+      <button class="navigation_button_class" data-group="Galleries">
         <div class = "navigation_banner_content">
           <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
           <h1>Galleries</h1>
@@ -36,7 +36,7 @@
       </button>
     </li>
     <li>
-      <button onclick = "NavigationBanner.OnNavigationGroupPressed('Learning', this)">
+      <button class="navigation_button_class" data-group="Learning">
         <div class = "navigation_banner_content">
           <div class = "background-image-multiply-blend" style = "background-image: url('/Data/Images/Backgrounds/Rock 2.png')"></div>
           <h1>Learning Resources</h1>
@@ -49,8 +49,4 @@
 </div>
 </div>
 
-<div id="dropdown" class="dropdown">
-  <p>Option 1</p>
-  <p>Option 2</p>
-  <p>Option 3</p>
-</div>
+<div id="dropdown" class="dropdown"></div>

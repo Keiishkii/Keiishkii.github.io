@@ -22,7 +22,7 @@
     top: 100px;
 
     overflow: hidden;
-    z-index: 10;
+    z-index: var(--navigation_banner_z-index);
 }
 
 #navigation_banner
@@ -98,12 +98,14 @@ li:first-child .navigation_banner_content { margin-left: 0px; }
 
     position: relative;
     display: inline;
+
+    color: var(--navigation_banner_colour);
     font-family: var(--navigation_banner_font);
     font-size: var(--navigation_banner_font_size);
 
     white-space: nowrap;
-    padding: 0px 20px;
-    color: white;
+    padding: 0px 1vw;
+    margin: 0px 0px;
 
     text-shadow: 3px 3px black;
 }
@@ -139,7 +141,7 @@ li:last-child .navigation_banner_content
 {
     position: relative;
     display: block;
-    z-index: -1;
+    z-index: calc(var(--navigation_banner_z-index) - 1);
 
     color: red;
 
@@ -156,10 +158,76 @@ li:last-child .navigation_banner_content
     background-image: radial-gradient(circle, seagreen var(--inner_ring_radius), mediumseagreen var(--outer_ring_radius), seagreen 85%, black 125%);
 }
 
-.dropdown
+#dropdown
 {
     position: fixed;
-    display: none;
-    z-index: 100000;
+    display: block;
+    z-index: var(--navigation_dropdown_z-index);
     background-color: red;
+
+    flex-direction: column; /* forces vertical stacking */
+    transform: translateY(calc(-1 * var(--navigation_dropdown_height)));
+    pointer-events: none;
+
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#dropdown.open
+{
+    display: block;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#dropdown button 
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 5px 15px 5px 15px;
+
+    cursor: pointer;
+
+    background-color: var(--UI_primary_colour);
+    color: var(--navigation_dropdown_colour);
+    font-family: var(--navigation_dropdown_font);
+    font-size: var(--navigation_dropdown_font_size);
+
+    border: 6px solid black;
+    text-shadow: 3px 3px black;
+    text-align: left;
+
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,1));
+    z-index: var(--navigation_dropdown_z-index);
+}
+
+#dropdown button .dropdown_element_background
+{
+    position: absolute; /* ignores parent content flow */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url('/Data/Images/Backgrounds/Rock 2.png');
+    background-size: cover;
+
+    pointer-events: none;
+    z-index: var(--navigation_dropdown_z-index);
+}
+
+#dropdown button h1
+{
+    position: relative; /* enables z-index */
+    z-index: calc(var(--navigation_dropdown_z-index) + 1);
+    font-size: var(--navigation_dropdown_font_size);
+
+    margin: 0;
+    padding: 0;
+}
+
+#dropdown button:hover
+{
+    background-image: radial-gradient(circle, var(--UI_hightlight_primary_colour) var(--inner_ring_radius), var(--UI_hightlight_secondary_colour) var(--outer_ring_radius), var(--UI_hightlight_primary_colour) 85%, black 125%);
+    box-shadow: 0px 0px 5px var(--UI_primary_colour) inset
 }

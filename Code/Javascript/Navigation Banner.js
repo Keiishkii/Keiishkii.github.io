@@ -1,29 +1,23 @@
 document.addEventListener('page-resized', () => NavigationBanner.OnWindowResized(), false);
-document.addEventListener('initialisation', () =>
-{
-    NavigationBanner.OnPageLoad()
-}, false);
-
-document.addEventListener('update', () =>
-{
-    NavigationBanner.Update()
-}, false);
+document.addEventListener('initialisation', () => NavigationBanner.OnPageLoad(), false);
+document.addEventListener("click", (event) => NavigationBanner.OnGlobalMouseDown(event), false);
+document.addEventListener('update', () => NavigationBanner.Update(), false);
 
 const NavigationGroups = {
     Home: [
         { label: "Go to Home", action: () => window.location.href = "/index.html" }
     ],
     About: [
-        { label: "About Me", action: () => window.location.href = "/Code/HTML/Pages/About Me.html" }
+        { label: "About Me", action: () => window.location.href = "../HTML/Pages/About Me.html" }
     ],
     Galleries: [
-        { label: "Character Art Work", action: () => console.log("Character Art clicked") },
-        { label: "3D Renders", action: () => console.log("3D Renders clicked") },
+        { label: "Character Art Work", action: () =>  window.location.href = "../HTML/Pages/Concept Artwork.html" },
+        { label: "3D Renders", action: () => window.location.href = "../HTML/Pages/Renders.html" },
     ],
     Work: [
-        { label: "INCISIV", action: () => console.log("INCISIV clicked") },
-        { label: "Bournemouth University", action: () => console.log("Bournemouth University clicked") },
-        { label: "Brighton MET College", action: () => console.log("Brighton MET College clicked") },
+        { label: "INCISIV", action: () => window.location.href = "../HTML/Pages/INCISIV.html" },
+        { label: "Bournemouth University", action: () =>  window.location.href = "../HTML/Pages/Bournemouth University.html" },
+        { label: "Brighton MET College", action: () =>  console.log("Brighton MET College")},
     ],
     Learning: [
         { label: "Unity", action: () => console.log("Unity clicked") },
@@ -58,6 +52,15 @@ const NavigationBanner =
         let navigationLinkElements = document.getElementById("navigation_banner").getElementsByTagName("li");
 
         NavigationBanner.lastLinkElement = navigationLinkElements.item(navigationLinkElements.length - 1);
+
+        document.querySelectorAll(".navigation_button_class").forEach(btn =>
+        {
+            btn.addEventListener("click", e =>
+            {
+                e.stopPropagation();
+                NavigationBanner.OnNavigationGroupPressed(btn.dataset.group, btn);
+            });
+        });
     },
 
     Update: function Update()
@@ -76,8 +79,8 @@ const NavigationBanner =
 
         let topDisplacement = NavigationBanner.titleBanner.clientHeight;
 
-        let scaledFontSize = Math.max(NavigationBanner.minFontSize, (fontSize * 0.65));
-        let scaledHeight = Math.max(NavigationBanner.minHeightSize, (topDisplacement * 0.575));
+        let scaledFontSize = 0.9 * Math.max(NavigationBanner.minFontSize, (fontSize * 0.65));
+        let scaledHeight = 0.95 * Math.max(NavigationBanner.minHeightSize, (topDisplacement * 0.575));
 
         NavigationBanner.navigationBanner.style.top = (topDisplacement - 1) + "px";
 
@@ -97,23 +100,57 @@ const NavigationBanner =
             return;
         }
 
+        if (!dropdown.classList.contains("open"))
+        {
+            console.log("Setting Dropdown To Open")
+            dropdown.classList.add("open")    // --- Positioning logic ---
+        }
+
         // Clear old content
         dropdown.innerHTML = "";
 
         // Populate new content
         navigationGroup.forEach(item => {
             const button = document.createElement("button");
-            button.textContent = item.label;
             button.onclick = item.action;
             dropdown.appendChild(button);
+
+            const background = document.createElement("div");
+            background.classList.add("dropdown_element_background");
+            background.classList.add("background-image-multiply-blend");
+            button.appendChild(background);
+
+            const label = document.createElement("h1");
+            label.textContent = item.label;
+            button.appendChild(label);
         });
 
         // Show dropdown (you can style this however you want)
+        const contentDiv = buttonElement.getElementsByClassName("navigation_banner_content")[0];
         const rect = buttonElement.getBoundingClientRect();
 
-        dropdown.style.position = "fixed"; // keep it fixed
         dropdown.style.left = rect.left + "px";
         dropdown.style.top = rect.bottom + "px";
-        dropdown.style.display = "block";    // --- Positioning logic ---
+
+        PageManager.root.style.setProperty('--navigation_dropdown_height', (dropdown.scrollHeight) + "px");
+    },
+
+    OnGlobalMouseDown : function OnGlobalMouseDown(event)
+    {
+        const dropdown = document.getElementById("dropdown");
+
+        // If dropdown is not open, ignore
+        if (!dropdown.classList.contains("open")) return;
+
+        // If click is inside dropdown, ignore
+        if (dropdown.contains(event.target)) return;
+
+        // If click is on a navigation button, ignore (your function handles it)
+        if (event.target.closest(".navigation_button_class")) return;
+
+        // Otherwise close
+        dropdown.classList.remove("open");
+        console.log("Setting Dropdown To Closed")
+        dropdown.dataset.openFor = "";
     }
 }
