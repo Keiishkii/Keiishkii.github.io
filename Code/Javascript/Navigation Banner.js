@@ -8,21 +8,21 @@ const NavigationGroups = {
         { label: "Go to Home", action: () => window.location.href = "/index.html" }
     ],
     About: [
-        { label: "About Me", action: () => window.location.href = "../HTML/Pages/About Me.html" }
+        { label: "About Me", action: () => window.location.href = "../Pages/About Me.html" }
     ],
     Galleries: [
-        { label: "Character Art Work", action: () =>  window.location.href = "../HTML/Pages/Concept Artwork.html" },
-        { label: "3D Renders", action: () => window.location.href = "../HTML/Pages/Renders.html" },
+        { label: "Character Art Work", action: () =>  window.location.href = "../Pages/Concept Artwork.html" },
+        { label: "3D Renders", action: () => window.location.href = "../Pages/Renders.html" },
     ],
     Work: [
-        { label: "INCISIV", action: () => window.location.href = "../HTML/Pages/INCISIV.html" },
-        { label: "Bournemouth University", action: () =>  window.location.href = "../HTML/Pages/Bournemouth University.html" },
-        { label: "Brighton MET College", action: () =>  console.log("Brighton MET College")},
+        { label: "INCISIV", action: () => window.location.href = "../Pages/INCISIV.html" },
+        { label: "Bournemouth University", action: () =>  window.location.href = "../Pages/Bournemouth University.html" },
+        { label: "Brighton MET College", action: () =>  window.location.href = "../Pages/Page Not Found.html" },
     ],
     Learning: [
-        { label: "Unity", action: () => console.log("Unity clicked") },
-        { label: "C# Tutorials", action: () => console.log("C# clicked") },
-        { label: "Maths Resources", action: () => console.log("Math clicked") }
+        { label: "Unity", action: () => window.location.href = "../Pages/Page Not Found.html" },
+        { label: "C# Tutorials", action: () => window.location.href = "../Pages/Page Not Found.html" },
+        { label: "Maths Resources", action: () => window.location.href = "../Pages/Page Not Found.html" }
     ]
 };
 
