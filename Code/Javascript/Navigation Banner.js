@@ -5,24 +5,24 @@ document.addEventListener('update', () => NavigationBanner.Update(), false);
 
 const NavigationGroups = {
     Home: [
-        { label: "Go to Home", action: () => window.location.href = "/index.html" }
+        { label: "Go to Home", action: () => window.location.href = "/Keiishkii.github.io/Code/index.html" }
     ],
     About: [
-        { label: "About Me", action: () => window.location.href = "../Pages/About Me.html" }
+        { label: "About Me", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/AboutMe.html" }
     ],
     Galleries: [
-        { label: "Character Art Work", action: () =>  window.location.href = "../Pages/Concept Artwork.html" },
-        { label: "3D Renders", action: () => window.location.href = "../Pages/Renders.html" },
+        { label: "Character Art Work", action: () =>  window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/ConceptArtwork.html" },
+        { label: "3D Renders", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/Renders.html" },
     ],
     Work: [
-        { label: "INCISIV", action: () => window.location.href = "../Pages/INCISIV.html" },
-        { label: "Bournemouth University", action: () =>  window.location.href = "../Pages/Bournemouth University.html" },
-        { label: "Brighton MET College", action: () =>  window.location.href = "../Pages/Page Not Found.html" },
+        { label: "INCISIV", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/INCISIV.html" },
+        { label: "Bournemouth University", action: () =>  window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/BournemouthUniversity.html" },
+        { label: "Brighton MET College", action: () =>  window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html" },
     ],
     Learning: [
-        { label: "Unity", action: () => window.location.href = "../Pages/Page Not Found.html" },
-        { label: "C# Tutorials", action: () => window.location.href = "../Pages/Page Not Found.html" },
-        { label: "Maths Resources", action: () => window.location.href = "../Pages/Page Not Found.html" }
+        { label: "Unity", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html" },
+        { label: "C# Tutorials", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html" },
+        { label: "Maths Resources", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html" }
     ]
 };
 
@@ -86,6 +86,11 @@ const NavigationBanner =
 
         PageManager.root.style.setProperty('--navigation_banner_font_size', (scaledFontSize) + "px");
         PageManager.root.style.setProperty('--navigation_banner_height', (scaledHeight) + "px");
+    },
+
+    OnNavigationLinkPressed: function OnNavigationLinkPressed()
+    {
+        console.log("Navigation Link Pressed: " + navigationGroupKey);
     },
 
     OnNavigationGroupPressed: function OnNavigationGroupPressed(navigationGroupKey, buttonElement)
