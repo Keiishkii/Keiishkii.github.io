@@ -5,7 +5,7 @@ document.addEventListener('update', () => NavigationBanner.Update(), false);
 
 const NavigationGroups = {
     Home: [
-        { label: "Go to Home", action: () => window.location.href = "/Keiishkii.github.io/Code/index.html" }
+        { label: "Go to Home", action: () => window.location.href = "/Keiishkii.github.io/index.html" }
     ],
     About: [
         { label: "About Me", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/AboutMe.html" }
