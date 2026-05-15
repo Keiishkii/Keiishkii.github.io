@@ -231,3 +231,24 @@ li:last-child .navigation_banner_content
     background-image: radial-gradient(circle, var(--UI_hightlight_primary_colour) var(--inner_ring_radius), var(--UI_hightlight_secondary_colour) var(--outer_ring_radius), var(--UI_hightlight_primary_colour) 85%, black 125%);
     box-shadow: 0px 0px 5px var(--UI_primary_colour) inset
 }
+
+.submenu {
+    display: none;
+    margin-left: 20px;
+    border-left: 2px solid rgba(255,255,255,0.2);
+    padding-left: 10px;
+}
+
+.submenu.open {
+    display: block;
+}
+
+.dropdown_item.has-children h1::after {
+    content: "▶";
+    float: right;
+    opacity: 0.7;
+}
+
+.submenu.open ~ .dropdown_item.has-children h1::after {
+    content: "▼";
+}

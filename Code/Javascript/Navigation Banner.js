@@ -4,25 +4,38 @@ document.addEventListener("click", (event) => NavigationBanner.OnGlobalMouseDown
 document.addEventListener('update', () => NavigationBanner.Update(), false);
 
 const NavigationGroups = {
-    Home: [
-        { label: "Go to Home", action: () => window.location.href = "/Keiishkii.github.io/index.html" }
-    ],
     About: [
-        { label: "About Me", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/AboutMe.html" }
-    ],
-    Galleries: [
-        { label: "Character Art Work", action: () =>  window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/ConceptArtwork.html" },
-        { label: "3D Renders", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/Renders.html" },
-    ],
-    Work: [
-        { label: "INCISIV", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/INCISIV.html" },
-        { label: "Bournemouth University", action: () =>  window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/BournemouthUniversity.html" },
-        { label: "Brighton MET College", action: () =>  window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html" },
-    ],
-    Learning: [
-        { label: "Unity", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html" },
-        { label: "C# Tutorials", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html" },
-        { label: "Maths Resources", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html" }
+        {
+            label: "About Me",
+            action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/AboutMe.html"
+        },
+        {
+            label: "Career",
+            children: [
+                {
+                    label: "INCISIV",
+                    children: [
+                        {
+                            label: "Lead Developer",
+                            children: [
+                                { label: "2022", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/INCISIV.html" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: "Brighton MET",
+                    action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html"
+                }
+            ]
+        },
+        {
+            label: "Projects",
+            children: [
+                { label: "Unity Tools", action: () => console.log("Unity Tools") },
+                { label: "Shaders", action: () => console.log("Shaders") }
+            ]
+        }
     ]
 };
 
@@ -53,7 +66,16 @@ const NavigationBanner =
 
         NavigationBanner.lastLinkElement = navigationLinkElements.item(navigationLinkElements.length - 1);
 
-        document.querySelectorAll(".navigation_button_class").forEach(btn =>
+        document.querySelectorAll(".navigation_link").forEach(btn =>
+        {
+            btn.addEventListener("click", e =>
+            {
+                e.stopPropagation();
+                NavigationBanner.OnNavigationLinkPressed(btn.dataset.group);
+            });
+        });
+
+        document.querySelectorAll(".navigation_group").forEach(btn =>
         {
             btn.addEventListener("click", e =>
             {
@@ -88,9 +110,17 @@ const NavigationBanner =
         PageManager.root.style.setProperty('--navigation_banner_height', (scaledHeight) + "px");
     },
 
-    OnNavigationLinkPressed: function OnNavigationLinkPressed()
+    OnNavigationLinkPressed: function OnNavigationLinkPressed(navigationLinkKey)
     {
-        console.log("Navigation Link Pressed: " + navigationGroupKey);
+        console.log("Navigation Link Pressed: " + navigationLinkKey);
+
+        const navigationLink = NavigationLinks[navigationLinkKey];
+        const dropdown = document.getElementById("dropdown");
+
+        if (!navigationLink) {
+            console.warn("No menu found for key:", navigationLinkKey);
+            return;
+        };
     },
 
     OnNavigationGroupPressed: function OnNavigationGroupPressed(navigationGroupKey, buttonElement)
@@ -101,7 +131,7 @@ const NavigationBanner =
         const dropdown = document.getElementById("dropdown");
 
         if (!navigationGroup) {
-            console.warn("No menu found for key:", navigationGroup);
+            console.warn("No menu found for key:", navigationGroupKey);
             return;
         }
 
@@ -111,24 +141,8 @@ const NavigationBanner =
             dropdown.classList.add("open")    // --- Positioning logic ---
         }
 
-        // Clear old content
         dropdown.innerHTML = "";
-
-        // Populate new content
-        navigationGroup.forEach(item => {
-            const button = document.createElement("button");
-            button.onclick = item.action;
-            dropdown.appendChild(button);
-
-            const background = document.createElement("div");
-            background.classList.add("dropdown_element_background");
-            background.classList.add("background-image-multiply-blend");
-            button.appendChild(background);
-
-            const label = document.createElement("h1");
-            label.textContent = item.label;
-            button.appendChild(label);
-        });
+        NavigationBanner.BuildNavigationDropdown(navigationGroup, dropdown);
 
         // Show dropdown (you can style this however you want)
         const contentDiv = buttonElement.getElementsByClassName("navigation_banner_content")[0];
@@ -138,6 +152,45 @@ const NavigationBanner =
         dropdown.style.top = rect.bottom + "px";
 
         PageManager.root.style.setProperty('--navigation_dropdown_height', (dropdown.scrollHeight) + "px");
+    },
+
+    BuildNavigationDropdown: function BuildNavigation(items, container)
+    {
+        items.forEach(item => {
+            const button = document.createElement("button");
+            button.classList.add("dropdown_item");
+
+            const background = document.createElement("div");
+            background.classList.add("dropdown_element_background", "background-image-multiply-blend");
+            button.appendChild(background);
+
+            const label = document.createElement("h1");
+            label.textContent = item.label;
+            button.appendChild(label);
+
+            container.appendChild(button);
+
+            // If the item has children, create a nested submenu
+            if (item.children && item.children.length > 0) {
+                button.classList.add("has-children");
+
+                const submenu = document.createElement("div");
+                submenu.classList.add("submenu");
+                container.appendChild(submenu);
+
+                // Recursively build children
+                NavigationBanner.BuildNavigationDropdown(item.children, submenu);
+
+                // Expand/collapse behaviour
+                button.addEventListener("click", e => {
+                    e.stopPropagation();
+                    submenu.classList.toggle("open");
+                });
+            } else if (item.action) {
+                // Leaf node → perform action
+                button.addEventListener("click", item.action);
+            }
+        });
     },
 
     OnGlobalMouseDown : function OnGlobalMouseDown(event)
