@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /Data/
+
+# Allow everything else
+Allow: /

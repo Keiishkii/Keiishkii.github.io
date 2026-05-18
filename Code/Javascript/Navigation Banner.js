@@ -4,39 +4,69 @@ document.addEventListener("click", (event) => NavigationBanner.OnGlobalMouseDown
 document.addEventListener('update', () => NavigationBanner.Update(), false);
 
 const NavigationGroups = {
-    About: [
+    Home: { action: () => window.location.href = "/Keiishkii.github.io/index.html" },
+    AboutMe: [
         {
-            label: "About Me",
-            action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/AboutMe.html"
+            label: "My Profile",
+            action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/MyProfile.html"
         },
         {
-            label: "Career",
+            label: "My Career",
             children: [
                 {
-                    label: "INCISIV",
-                    children: [
-                        {
-                            label: "Lead Developer",
-                            children: [
-                                { label: "2022", action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/INCISIV.html" }
-                            ]
-                        }
-                    ]
+                    label: "INCISIV Ltd",
+                    action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html"
                 },
                 {
-                    label: "Brighton MET",
+                    label: "MINE Cluster",
+                    action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html"
+                }
+            ],
+        },
+        {
+            label: "My Education",
+            action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html"
+        }
+    ],
+    Galleries: [
+        {
+            label: "Concept Art",
+            action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/ConceptArt.html"
+        },
+        {
+            label: "Renders",
+            action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/Renders.html"
+        }
+    ],
+    Learning: [
+        {
+            label: "C# Programming",
+            children: [
+                {
+                    label: "Variable Types",
+                    action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html"
+                }
+            ],
+        },
+        {
+            label: "Unity",
+            children: [
+                {
+                    label: "Basics",
+                    action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html"
+                }
+            ],
+        },
+        {
+            label: "Blender",
+            children: [
+                {
+                    label: "Rigging",
                     action: () => window.location.href = "/Keiishkii.github.io/Code/HTML/Pages/PageNotFound.html"
                 }
             ]
-        },
-        {
-            label: "Projects",
-            children: [
-                { label: "Unity Tools", action: () => console.log("Unity Tools") },
-                { label: "Shaders", action: () => console.log("Shaders") }
-            ]
         }
-    ]
+    ],
 };
 
 const NavigationBanner =
@@ -65,15 +95,6 @@ const NavigationBanner =
         let navigationLinkElements = document.getElementById("navigation_banner").getElementsByTagName("li");
 
         NavigationBanner.lastLinkElement = navigationLinkElements.item(navigationLinkElements.length - 1);
-
-        document.querySelectorAll(".navigation_link").forEach(btn =>
-        {
-            btn.addEventListener("click", e =>
-            {
-                e.stopPropagation();
-                NavigationBanner.OnNavigationLinkPressed(btn.dataset.group);
-            });
-        });
 
         document.querySelectorAll(".navigation_group").forEach(btn =>
         {
@@ -110,19 +131,6 @@ const NavigationBanner =
         PageManager.root.style.setProperty('--navigation_banner_height', (scaledHeight) + "px");
     },
 
-    OnNavigationLinkPressed: function OnNavigationLinkPressed(navigationLinkKey)
-    {
-        console.log("Navigation Link Pressed: " + navigationLinkKey);
-
-        const navigationLink = NavigationLinks[navigationLinkKey];
-        const dropdown = document.getElementById("dropdown");
-
-        if (!navigationLink) {
-            console.warn("No menu found for key:", navigationLinkKey);
-            return;
-        };
-    },
-
     OnNavigationGroupPressed: function OnNavigationGroupPressed(navigationGroupKey, buttonElement)
     {
         console.log("Navigation Group Pressed: " + navigationGroupKey);
@@ -132,6 +140,11 @@ const NavigationBanner =
 
         if (!navigationGroup) {
             console.warn("No menu found for key:", navigationGroupKey);
+            return;
+        }
+
+        if (!Array.isArray(navigationGroup)) {
+            navigationGroup.action();
             return;
         }
 
@@ -184,7 +197,8 @@ const NavigationBanner =
                 // Expand/collapse behaviour
                 button.addEventListener("click", e => {
                     e.stopPropagation();
-                    submenu.classList.toggle("open");
+                    const isOpen = submenu.classList.toggle("open");
+                    button.classList.toggle("open", isOpen);
                 });
             } else if (item.action) {
                 // Leaf node → perform action
@@ -203,10 +217,13 @@ const NavigationBanner =
         // If click is inside dropdown, ignore
         if (dropdown.contains(event.target)) return;
 
-        // If click is on a navigation button, ignore (your function handles it)
+        // If click is on a navigation button, ignore
         if (event.target.closest(".navigation_button_class")) return;
 
-        // Otherwise close
+        // Close ALL open submenus
+        dropdown.querySelectorAll(".open").forEach(el => el.classList.remove("open"));
+
+        // Close main dropdown
         dropdown.classList.remove("open");
         console.log("Setting Dropdown To Closed")
         dropdown.dataset.openFor = "";
